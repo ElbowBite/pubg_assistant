@@ -1,0 +1,95 @@
+.Torso {
+	transform: scale(1.2);
+  transform-origin: 0 0;
+  position: relative;
+  width: 225px;
+  height: 512px;
+  background-image: url('../../../assets/images/torso.png');
+  background-repeat: no-repeat;
+  background-color: grey;
+  color: white;
+	font-size: 15px;
+	display: inline-block;
+	text-align: center;
+	border: 1px solid red;
+}
+
+span {
+	display: block;
+}
+
+.Head {
+	position: relative;
+	top: 10px;
+}
+
+.Neck {
+	position: relative;
+	top: 50px;
+}
+
+.Shoulder {
+	position: relative;
+	top: 30px;
+	left: 50px;
+}
+
+.UpperArm {
+	position: relative;
+	top: 65px;
+	left: 85px;
+}
+
+.Chest {
+	position: relative;
+	top: 55px;
+}
+
+.LowerArm {
+	position: relative;
+	top: 115px;
+	left: 70px;
+	font-size: 13px;
+}
+
+.Stomach {
+	position: relative;
+	top: 70px;
+}
+
+.LowerStomach {
+	position: relative;
+	top: 86px;
+}
+
+.Hand {
+	position: relative;
+	top: 94px;
+	left: 86px;
+	font-size: 12px;
+}
+
+.Groin {
+	position: relative;
+	top: 90px;
+}
+
+.Thigh {
+	position: relative;
+	top: 135px;
+	left: 27px;
+}
+
+.Calf {
+	position: relative;
+	top: 220px;
+	left: 27px;
+	font-size: 14px;
+}
+
+.Foot {
+	position: relative;
+	top: 282px;
+	left: 19px;
+	font-size: 12px;
+}

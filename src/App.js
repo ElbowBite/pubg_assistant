@@ -1,25 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+
+import Torso from "./components/UI/Torso/Torso";
+import LeftTools from './components/UI/Desktop/LeftTools/LeftTools';
+import RightTools from './components/UI/Desktop/RightTools/RightTools';
+import Toolbar from "./components/UI/Mobile/Toolbar/Toolbar";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className='DesktopView'>
+				<LeftTools />
+        <Torso />
+				<RightTools />
+      </div>
+      <Toolbar />
+    </>
   );
 }
 

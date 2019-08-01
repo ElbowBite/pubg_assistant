@@ -1,0 +1,12 @@
+.Weapons {
+	width: 96px;
+	height: 40px;
+	display: inline-block;
+	border: none;
+	background-size: 96px;
+	cursor: pointer;
+}
+
+.AKM {
+	background-image: url('../../../../assets/images/main/weapons/ARs/AKM.png');
+}
