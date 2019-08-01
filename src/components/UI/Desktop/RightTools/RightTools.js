@@ -19,6 +19,9 @@ const RightTools = props => {
     <div style={{ display: "inline-block", width: "360px"}}>
       <div>
         <button className={classNames(styles.Weapons, styles.AKM)} />
+        <button className={classNames(styles.Weapons, styles.AUG_A3)} />
+        <button className={classNames(styles.Weapons, styles.G36C)} />
+        <button className={classNames(styles.Weapons, styles.Groza)} />
       </div>
     </div>
   );
