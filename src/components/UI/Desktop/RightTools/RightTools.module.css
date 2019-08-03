@@ -1,24 +1,95 @@
+.RightTools {
+	max-width: 384px;
+	/* border: solid blue 1px; */
+}
+
+.WeapType {
+	width: 48px;
+	font-size: 12px;
+}
+.WeapType:hover {
+	-webkit-transform: scale(1.4) rotate(5deg);
+  transform: scale(1.4) rotate(5deg);
+}
+
 .Weapons {
 	width: 96px;
 	height: 40px;
-	display: inline-block;
 	border: none;
 	background-size: 96px;
-	cursor: pointer;
+}
+
+.Weapons:hover {
+	-webkit-transform: scale(1.4) rotate(10deg);
+  transform: scale(1.4) rotate(10deg);
 }
 
 .AKM {
 	background-image: url('../../../../assets/images/main/weapons/ARs/AKM.png');
 }
+.AKM:hover {
+	background-image: url('../../../../assets/images/main/weapons/selected/ARs/AKM.png');
+}
 
 .AUG_A3 {
 	background-image: url('../../../../assets/images/main/weapons/ARs/AUG_A3.png');
+}
+.AUG_A3:hover {
+	background-image: url('../../../../assets/images/main/weapons/selected/ARs/AUG_A3.png');
 }
 
 .G36C {
 	background-image: url('../../../../assets/images/main/weapons/ARs/G36C.png');
 }
+.G36C:hover {
+	background-image: url('../../../../assets/images/main/weapons/selected/ARs/G36C.png');
+}
 
 .Groza {
 	background-image: url('../../../../assets/images/main/weapons/ARs/Groza.png');
+}
+.Groza:hover {
+	background-image: url('../../../../assets/images/main/weapons/selected/ARs/Groza.png');
+}
+
+.HK416 {
+	background-image: url('../../../../assets/images/main/weapons/ARs/HK416.png');
+}
+.HK416:hover {
+	background-image: url('../../../../assets/images/main/weapons/selected/ARs/HK416.png');
+}
+
+.M16A4 {
+	background-image: url('../../../../assets/images/main/weapons/ARs/M16A4.png');
+}
+.M16A4:hover {
+	background-image: url('../../../../assets/images/main/weapons/selected/ARs/M16A4.png');
+}
+
+.M762_Beryl {
+	background-image: url('../../../../assets/images/main/weapons/ARs/M762_Beryl.png');
+}
+.M762_Beryl:hover {
+	background-image: url('../../../../assets/images/main/weapons/selected/ARs/M762_Beryl.png');
+}
+
+.Mk47_Mutant {
+	background-image: url('../../../../assets/images/main/weapons/ARs/Mk47_Mutant.png');
+}
+.Mk47_Mutant:hover {
+	background-image: url('../../../../assets/images/main/weapons/selected/ARs/Mk47_Mutant.png');
+}
+
+.QBZ95 {
+	background-image: url('../../../../assets/images/main/weapons/ARs/QBZ95.png');
+}
+.QBZ95:hover {
+	background-image: url('../../../../assets/images/main/weapons/selected/ARs/QBZ95.png');
+}
+
+.SCAR_L {
+	background-image: url('../../../../assets/images/main/weapons/ARs/SCAR_L.png');
+}
+.SCAR_L:hover {
+	background-image: url('../../../../assets/images/main/weapons/selected/ARs/SCAR_L.png');
 }

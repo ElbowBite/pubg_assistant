@@ -15,21 +15,50 @@ const RightTools = props => {
   console.log(value);
 	return <button className={styles.lvl1h} />;	//Wrong styling */
 
+  //Array of weapon types. TO replace with state.weapons[***] from reducer !!!
+  const weapTypes = [
+    "ARs",
+    "SRs",
+    "DMRs",
+    "SMGs",
+    "LMGs",
+    "SGs",
+    "Pistols",
+    "Melee"
+  ];
+  //Weapon types buttons generation
+  const weapTypesSelector = weapTypes.map(weapType => {
+    return (
+      <button key={weapType} className={styles.WeapType} name={weapType}>
+        {weapType}
+      </button>
+    );
+  });
+
+  const curWeapList = props.weapons[props.curWeapType].map((weapon, index) => {
+    return (
+      <button
+        key={weapon.name}
+        className={classNames(styles.Weapons, styles[weapon.name])}
+      />
+    );
+  });
+
   return (
-    <div style={{ display: "inline-block", width: "360px"}}>
+    <div className={styles.RightTools}>
       <div>
-        <button className={classNames(styles.Weapons, styles.AKM)} />
-        <button className={classNames(styles.Weapons, styles.AUG_A3)} />
-        <button className={classNames(styles.Weapons, styles.G36C)} />
-        <button className={classNames(styles.Weapons, styles.Groza)} />
+        <p style={{ textAlign: "center", fontSize: "20px" }}>Select weapon</p>
+        {weapTypesSelector}
       </div>
+      <div>{curWeapList}</div>
     </div>
   );
 };
 
 const mapStateToProps = state => {
   return {
-    weapons: state.weapons
+    weapons: state.weapons,
+    curWeapType: state.curWeapType
   };
 };
 

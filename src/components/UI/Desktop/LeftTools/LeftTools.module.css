@@ -1,59 +1,87 @@
-.Helmet {
-	width: 70px;
-	height: 70px;
+.LeftTools {
+	/* border: solid lightgreen 1px; */
 	display: inline-block;
-	border: none;
-	background-size: 70px;
-	cursor: pointer;
+	min-width: 280px;
+}
+
+.Helmet,
+.Vest {
+  width: 70px;
+  height: 70px;
+  border: none;
+  background-size: 70px;
+}
+
+.Helmet:hover,
+.Vest:hover {
+	-webkit-transform: scale(1.4) rotate(10deg);
+  transform: scale(1.4) rotate(10deg);
+}
+
+button {
+  outline: none;
+}
+
+.lvl0h {
+  background-image: url("../../../../assets/images/main/gear/helmets/lvl0h.png");
+}
+.lvl0h:hover,
+.lvl0hActive {
+  background-image: url("../../../../assets/images/main/gear/selected/helmets/lvl0h.png");
 }
 
 .lvl1h {
-	background-image: url('../../../../assets/images/main/gear/helmets/lvl1h.png');
+  background-image: url("../../../../assets/images/main/gear/helmets/lvl1h.png");
 }
-.lvl1h:hover {
-	background-image: url('../../../../assets/images/main/gear/selected/helmets/lvl1h.png');
+.lvl1h:hover,
+.lvl1hActive {
+  background-image: url("../../../../assets/images/main/gear/selected/helmets/lvl1h.png");
 }
 
 .lvl2h {
-	background-image: url('../../../../assets/images/main/gear/helmets/lvl2h.png');
+  background-image: url("../../../../assets/images/main/gear/helmets/lvl2h.png");
 }
-.lvl2h:hover {
-	background-image: url('../../../../assets/images/main/gear/selected/helmets/lvl2h.png');
+.lvl2h:hover,
+.lvl2hActive {
+  background-image: url("../../../../assets/images/main/gear/selected/helmets/lvl2h.png");
 }
 
 .lvl3h {
-	background-image: url('../../../../assets/images/main/gear/helmets/lvl3h.png');
+  background-image: url("../../../../assets/images/main/gear/helmets/lvl3h.png");
 }
-.lvl3h:hover {
-	background-image: url('../../../../assets/images/main/gear/selected/helmets/lvl3h.png');
+.lvl3h:hover,
+.lvl3hActive {
+  background-image: url("../../../../assets/images/main/gear/selected/helmets/lvl3h.png");
 }
 
-.Vest {
-	width: 70px;
-	height: 70px;
-	display: inline-block;
-	border: none;
-	background-size: 70px;
-	cursor: pointer;
+.lvl0v {
+  background-image: url("../../../../assets/images/main/gear/vests/lvl0v.png");
+}
+.lvl0v:hover,
+.lvl0vActive {
+  background-image: url("../../../../assets/images/main/gear/selected/vests/lvl0v.png");
 }
 
 .lvl1v {
-	background-image: url('../../../../assets/images/main/gear/vests/lvl1v.png');
+  background-image: url("../../../../assets/images/main/gear/vests/lvl1v.png");
 }
-.lvl1v:hover {
-	background-image: url('../../../../assets/images/main/gear/selected/vests/lvl1v.png');
+.lvl1v:hover,
+.lvl1vActive {
+  background-image: url("../../../../assets/images/main/gear/selected/vests/lvl1v.png");
 }
 
 .lvl2v {
-	background-image: url('../../../../assets/images/main/gear/vests/lvl2v.png');
+  background-image: url("../../../../assets/images/main/gear/vests/lvl2v.png");
 }
-.lvl2v:hover {
-	background-image: url('../../../../assets/images/main/gear/selected/vests/lvl2v.png');
+.lvl2v:hover,
+.lvl2vActive {
+  background-image: url("../../../../assets/images/main/gear/selected/vests/lvl2v.png");
 }
 
 .lvl3v {
-	background-image: url('../../../../assets/images/main/gear/vests/lvl3v.png');
+  background-image: url("../../../../assets/images/main/gear/vests/lvl3v.png");
 }
-.lvl3v:hover {
-	background-image: url('../../../../assets/images/main/gear/selected/vests/lvl3v.png');
+.lvl3v:hover,
+.lvl3vActive {
+  background-image: url("../../../../assets/images/main/gear/selected/vests/lvl3v.png");
 }

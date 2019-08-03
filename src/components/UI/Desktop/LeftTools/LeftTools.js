@@ -4,18 +4,85 @@ import classNames from "classnames";
 
 import styles from "./LeftTools.module.css";
 
+const HELMETS = [
+  {
+    id: 0,
+    style: styles.lvl0h,
+    activeStyle: styles.lvl0hActive
+  },
+  {
+    id: 1,
+    style: styles.lvl1h,
+    activeStyle: styles.lvl1hActive
+  },
+  {
+    id: 2,
+    style: styles.lvl2h,
+    activeStyle: styles.lvl2hActive
+  },
+  {
+    id: 3,
+    style: styles.lvl3h,
+    activeStyle: styles.lvl3hActive
+  }
+];
+
+const VESTS = [
+  {
+    id: 0,
+    style: styles.lvl0v,
+    activeStyle: styles.lvl0vActive
+  },
+  {
+    id: 1,
+    style: styles.lvl1v,
+    activeStyle: styles.lvl1vActive
+  },
+  {
+    id: 2,
+    style: styles.lvl2v,
+    activeStyle: styles.lvl2vActive
+  },
+  {
+    id: 3,
+    style: styles.lvl3v,
+    activeStyle: styles.lvl3vActive
+  }
+];
+
 const LeftTools = props => {
+  const [helmType, setHelmType] = React.useState(0);
+  const [vestType, setVestType] = React.useState(0);
   return (
-    <div style={{ display: "inline-block"}}>
+    <div className={styles.LeftTools}>
+      <p style={{ textAlign: "center", fontSize: "20px" }}>
+        Select helmet and vest levels.
+      </p>
       <div>
-        <button className={classNames(styles.Helmet, styles.lvl1h)} />
-        <button className={classNames(styles.Helmet, styles.lvl2h)} />
-        <button className={classNames(styles.Helmet, styles.lvl3h)} />
+        {HELMETS.map(helm => (
+          <button
+            className={classNames(
+              styles.Helmet,
+              helm.style,
+              helm.id === helmType && helm.activeStyle
+            )}
+            key={helm.id}
+            onClick={() => setHelmType(helm.id)}
+          />
+        ))}
       </div>
       <div>
-        <button className={classNames(styles.Vest, styles.lvl1v)} />
-        <button className={classNames(styles.Vest, styles.lvl2v)} />
-        <button className={classNames(styles.Vest, styles.lvl3v)} />
+        {VESTS.map(vest => (
+          <button
+            className={classNames(
+              styles.Vest,
+              vest.style,
+              vest.id === vestType && vest.activeStyle
+            )}
+            key={vest.id}
+            onClick={() => setVestType(vest.id)}
+          />
+        ))}
       </div>
     </div>
   );

@@ -76,7 +76,8 @@ const initState = {
 				dmgMulitplier: 0.55
 			}
 		]
-	}
+	},
+	curWeapType: "ARs"
 };
 
 const reducer = (state = initState, action) => {
