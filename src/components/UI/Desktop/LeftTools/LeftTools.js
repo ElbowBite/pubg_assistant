@@ -4,7 +4,7 @@ import classNames from "classnames";
 
 import styles from "./LeftTools.module.css";
 import * as actions from "../../../../store/actions";
-//123
+
 const LeftTools = props => {
   const helmetList = props.gear.helmets.map(helm => (
     <button
