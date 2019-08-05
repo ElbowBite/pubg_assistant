@@ -1,13 +1,16 @@
 .RightTools {
 	max-width: 384px;
+	min-height: 205px;
 	/* border: solid blue 1px; */
 }
 
 .WeapType {
 	width: 48px;
 	font-size: 12px;
+	z-index: 1;
 }
 .WeapType:hover {
+	z-index: 2;
 	-webkit-transform: scale(1.4) rotate(5deg);
   transform: scale(1.4) rotate(5deg);
 }
@@ -17,79 +20,380 @@
 	height: 40px;
 	border: none;
 	background-size: 96px;
+	position: relative;
+	z-index: 1;
 }
 
 .Weapons:hover {
+	z-index: 2;
 	-webkit-transform: scale(1.4) rotate(10deg);
   transform: scale(1.4) rotate(10deg);
 }
 
+/* ARs */
+
 .AKM {
 	background-image: url('../../../../assets/images/main/weapons/ARs/AKM.png');
 }
-.AKM:hover {
+.AKM:hover,
+.AKM_active {
 	background-image: url('../../../../assets/images/main/weapons/selected/ARs/AKM.png');
 }
 
 .AUG_A3 {
 	background-image: url('../../../../assets/images/main/weapons/ARs/AUG_A3.png');
 }
-.AUG_A3:hover {
+.AUG_A3:hover,
+.AUG_A3_active {
 	background-image: url('../../../../assets/images/main/weapons/selected/ARs/AUG_A3.png');
 }
 
 .G36C {
 	background-image: url('../../../../assets/images/main/weapons/ARs/G36C.png');
 }
-.G36C:hover {
+.G36C:hover,
+.G36C_active {
 	background-image: url('../../../../assets/images/main/weapons/selected/ARs/G36C.png');
 }
 
 .Groza {
 	background-image: url('../../../../assets/images/main/weapons/ARs/Groza.png');
 }
-.Groza:hover {
+.Groza:hover,
+.Groza_active {
 	background-image: url('../../../../assets/images/main/weapons/selected/ARs/Groza.png');
 }
 
 .HK416 {
 	background-image: url('../../../../assets/images/main/weapons/ARs/HK416.png');
 }
-.HK416:hover {
+.HK416:hover,
+.HK416_active {
 	background-image: url('../../../../assets/images/main/weapons/selected/ARs/HK416.png');
 }
 
 .M16A4 {
 	background-image: url('../../../../assets/images/main/weapons/ARs/M16A4.png');
 }
-.M16A4:hover {
+.M16A4:hover,
+.M16A4_active {
 	background-image: url('../../../../assets/images/main/weapons/selected/ARs/M16A4.png');
 }
 
 .M762_Beryl {
 	background-image: url('../../../../assets/images/main/weapons/ARs/M762_Beryl.png');
 }
-.M762_Beryl:hover {
+.M762_Beryl:hover,
+.M762_Beryl_active {
 	background-image: url('../../../../assets/images/main/weapons/selected/ARs/M762_Beryl.png');
 }
 
 .Mk47_Mutant {
 	background-image: url('../../../../assets/images/main/weapons/ARs/Mk47_Mutant.png');
 }
-.Mk47_Mutant:hover {
+.Mk47_Mutant:hover,
+.Mk47_Mutant_active {
 	background-image: url('../../../../assets/images/main/weapons/selected/ARs/Mk47_Mutant.png');
 }
 
 .QBZ95 {
 	background-image: url('../../../../assets/images/main/weapons/ARs/QBZ95.png');
 }
-.QBZ95:hover {
+.QBZ95:hover,
+.QBZ95_active {
 	background-image: url('../../../../assets/images/main/weapons/selected/ARs/QBZ95.png');
 }
 
 .SCAR_L {
 	background-image: url('../../../../assets/images/main/weapons/ARs/SCAR_L.png');
 }
-.SCAR_L:hover {
+.SCAR_L:hover,
+.SCAR_L_active {
 	background-image: url('../../../../assets/images/main/weapons/selected/ARs/SCAR_L.png');
+}
+
+/* DMRs */
+
+.Mini14 {
+	background-image: url('../../../../assets/images/main/weapons/DMRs/Mini14.png');
+}
+.Mini14:hover,
+.Mini14_active {
+	background-image: url('../../../../assets/images/main/weapons/selected/DMRs/Mini14.png');
+}
+
+.Mk14 {
+	background-image: url('../../../../assets/images/main/weapons/DMRs/Mk14.png');
+}
+.Mk14:hover,
+.Mk14_active {
+	background-image: url('../../../../assets/images/main/weapons/selected/DMRs/Mk14.png');
+}
+
+.QBU {
+	background-image: url('../../../../assets/images/main/weapons/DMRs/QBU.png');
+}
+.QBU:hover,
+.QBU_active {
+	background-image: url('../../../../assets/images/main/weapons/selected/DMRs/QBU.png');
+}
+
+.SKS {
+	background-image: url('../../../../assets/images/main/weapons/DMRs/SKS.png');
+}
+.SKS:hover,
+.SKS_active {
+	background-image: url('../../../../assets/images/main/weapons/selected/DMRs/SKS.png');
+}
+
+.SLR {
+	background-image: url('../../../../assets/images/main/weapons/DMRs/SLR.png');
+}
+.SLR:hover,
+.SLR_active {
+	background-image: url('../../../../assets/images/main/weapons/selected/DMRs/SLR.png');
+}
+
+.VSS {
+	background-image: url('../../../../assets/images/main/weapons/DMRs/VSS.png');
+}
+.VSS:hover,
+.VSS_active {
+	background-image: url('../../../../assets/images/main/weapons/selected/DMRs/VSS.png');
+}
+
+/* LMGs */
+
+.DP_28 {
+	background-image: url('../../../../assets/images/main/weapons/LMGs/DP_28.png');
+}
+.DP_28:hover,
+.DP_28_active {
+	background-image: url('../../../../assets/images/main/weapons/selected/LMGs/DP_28.png');
+}
+
+.M249 {
+	background-image: url('../../../../assets/images/main/weapons/LMGs/M249.png');
+}
+.M249:hover,
+.M249_active {
+	background-image: url('../../../../assets/images/main/weapons/selected/LMGs/M249.png');
+}
+
+/* Melee */
+
+.Crowbar {
+	background-image: url('../../../../assets/images/main/weapons/Melee/Crowbar.png');
+}
+.Crowbar:hover,
+.Crowbar_active {
+	background-image: url('../../../../assets/images/main/weapons/selected/Melee/Crowbar.png');
+}
+
+.Machete {
+	background-image: url('../../../../assets/images/main/weapons/Melee/Machete.png');
+}
+.Machete:hover,
+.Machete_active {
+	background-image: url('../../../../assets/images/main/weapons/selected/Melee/Machete.png');
+}
+
+.Pan {
+	background-image: url('../../../../assets/images/main/weapons/Melee/Pan.png');
+}
+.Pan:hover,
+.Pan_active {
+	background-image: url('../../../../assets/images/main/weapons/selected/Melee/Pan.png');
+}
+
+.Sickle {
+	background-image: url('../../../../assets/images/main/weapons/Melee/Sickle.png');
+}
+.Sickle:hover,
+.Sickle_active {
+	background-image: url('../../../../assets/images/main/weapons/selected/Melee/Sickle.png');
+}
+
+/* Pistols */
+
+.Deagle {
+	background-image: url('../../../../assets/images/main/weapons/Pistols/Deagle.png');
+}
+.Deagle:hover,
+.Deagle_active {
+	background-image: url('../../../../assets/images/main/weapons/selected/Pistols/Deagle.png');
+}
+
+.Flare_gun {
+	background-image: url('../../../../assets/images/main/weapons/Pistols/Flare_gun.png');
+}
+.Flare_gun:hover,
+.Flare_gun_active {
+	background-image: url('../../../../assets/images/main/weapons/selected/Pistols/Flare_gun.png');
+}
+
+.P1911 {
+	background-image: url('../../../../assets/images/main/weapons/Pistols/P1911.png');
+}
+.P1911:hover,
+.P1911_active {
+	background-image: url('../../../../assets/images/main/weapons/selected/Pistols/P1911.png');
+}
+
+.P18C {
+	background-image: url('../../../../assets/images/main/weapons/Pistols/P18C.png');
+}
+.P18C:hover,
+.P18C_active {
+	background-image: url('../../../../assets/images/main/weapons/selected/Pistols/P18C.png');
+}
+
+.P92 {
+	background-image: url('../../../../assets/images/main/weapons/Pistols/P92.png');
+}
+.P92:hover,
+.P92_active {
+	background-image: url('../../../../assets/images/main/weapons/selected/Pistols/P92.png');
+}
+
+.R45 {
+	background-image: url('../../../../assets/images/main/weapons/Pistols/R45.png');
+}
+.R45:hover,
+.R45_active {
+	background-image: url('../../../../assets/images/main/weapons/selected/Pistols/R45.png');
+}
+
+.R1895 {
+	background-image: url('../../../../assets/images/main/weapons/Pistols/R1895.png');
+}
+.R1895:hover,
+.R1895_active {
+	background-image: url('../../../../assets/images/main/weapons/selected/Pistols/R1895.png');
+}
+
+.Skorpion {
+	background-image: url('../../../../assets/images/main/weapons/Pistols/Skorpion.png');
+}
+.Skorpion:hover,
+.Skorpion_active {
+	background-image: url('../../../../assets/images/main/weapons/selected/Pistols/Skorpion.png');
+}
+
+/* SGs */
+
+.S12K {
+	background-image: url('../../../../assets/images/main/weapons/SGs/S12K.png');
+}
+.S12K:hover,
+.S12K_active {
+	background-image: url('../../../../assets/images/main/weapons/selected/SGs/S12K.png');
+}
+
+.S686 {
+	background-image: url('../../../../assets/images/main/weapons/SGs/S686.png');
+}
+.S686:hover,
+.S686_active {
+	background-image: url('../../../../assets/images/main/weapons/selected/SGs/S686.png');
+}
+
+.S1897 {
+	background-image: url('../../../../assets/images/main/weapons/SGs/S1897.png');
+}
+.S1897:hover,
+.S1897_active {
+	background-image: url('../../../../assets/images/main/weapons/selected/SGs/S1897.png');
+}
+
+.Sawed_off {
+	background-image: url('../../../../assets/images/main/weapons/SGs/Sawed_off.png');
+}
+.Sawed_off:hover,
+.Sawed_off_active {
+	background-image: url('../../../../assets/images/main/weapons/selected/SGs/Sawed_off.png');
+}
+
+/* SMGs */
+
+.MP5K {
+	background-image: url('../../../../assets/images/main/weapons/SMGs/MP5K.png');
+}
+.MP5K:hover,
+.MP5K_active {
+	background-image: url('../../../../assets/images/main/weapons/selected/SMGs/MP5K.png');
+}
+
+.PP-19_Bizon {
+	background-image: url('../../../../assets/images/main/weapons/SMGs/PP-19_Bizon.png');
+}
+.PP-19_Bizon:hover,
+.PP-19_Bizon_active {
+	background-image: url('../../../../assets/images/main/weapons/selected/SMGs/PP-19_Bizon.png');
+}
+
+.Thompson {
+	background-image: url('../../../../assets/images/main/weapons/SMGs/Thompson.png');
+}
+.Thompson:hover,
+.Thompson_active {
+	background-image: url('../../../../assets/images/main/weapons/selected/SMGs/Thompson.png');
+}
+
+.UMP {
+	background-image: url('../../../../assets/images/main/weapons/SMGs/UMP.png');
+}
+.UMP:hover,
+.UMP_active {
+	background-image: url('../../../../assets/images/main/weapons/selected/SMGs/UMP.png');
+}
+
+.UZI {
+	background-image: url('../../../../assets/images/main/weapons/SMGs/UZI.png');
+}
+.UZI:hover,
+.UZI_active {
+	background-image: url('../../../../assets/images/main/weapons/selected/SMGs/UZI.png');
+}
+
+.Vector {
+	background-image: url('../../../../assets/images/main/weapons/SMGs/Vector.png');
+}
+.Vector:hover,
+.Vector_active {
+	background-image: url('../../../../assets/images/main/weapons/selected/SMGs/Vector.png');
+}
+
+/* ARs */
+
+.AWM {
+	background-image: url('../../../../assets/images/main/weapons/SRs/AWM.png');
+}
+.AWM:hover,
+.AWM_active {
+	background-image: url('../../../../assets/images/main/weapons/selected/SRs/AWM.png');
+}
+
+.Kar98k {
+	background-image: url('../../../../assets/images/main/weapons/SRs/Kar98k.png');
+}
+.Kar98k:hover,
+.Kar98k_active {
+	background-image: url('../../../../assets/images/main/weapons/selected/SRs/Kar98k.png');
+}
+
+.M24 {
+	background-image: url('../../../../assets/images/main/weapons/SRs/M24.png');
+}
+.M24:hover,
+.M24_active {
+	background-image: url('../../../../assets/images/main/weapons/selected/SRs/M24.png');
+}
+
+.Win94 {
+	background-image: url('../../../../assets/images/main/weapons/SRs/Win94.png');
+}
+.Win94:hover,
+.Win94_active {
+	background-image: url('../../../../assets/images/main/weapons/selected/SRs/Win94.png');
 }

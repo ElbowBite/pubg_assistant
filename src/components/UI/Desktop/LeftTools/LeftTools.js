@@ -3,95 +3,60 @@ import { connect } from "react-redux";
 import classNames from "classnames";
 
 import styles from "./LeftTools.module.css";
-
-const HELMETS = [
-  {
-    id: 0,
-    style: styles.lvl0h,
-    activeStyle: styles.lvl0hActive
-  },
-  {
-    id: 1,
-    style: styles.lvl1h,
-    activeStyle: styles.lvl1hActive
-  },
-  {
-    id: 2,
-    style: styles.lvl2h,
-    activeStyle: styles.lvl2hActive
-  },
-  {
-    id: 3,
-    style: styles.lvl3h,
-    activeStyle: styles.lvl3hActive
-  }
-];
-
-const VESTS = [
-  {
-    id: 0,
-    style: styles.lvl0v,
-    activeStyle: styles.lvl0vActive
-  },
-  {
-    id: 1,
-    style: styles.lvl1v,
-    activeStyle: styles.lvl1vActive
-  },
-  {
-    id: 2,
-    style: styles.lvl2v,
-    activeStyle: styles.lvl2vActive
-  },
-  {
-    id: 3,
-    style: styles.lvl3v,
-    activeStyle: styles.lvl3vActive
-  }
-];
+import * as actions from "../../../../store/actions";
 
 const LeftTools = props => {
-  const [helmType, setHelmType] = React.useState(0);
-  const [vestType, setVestType] = React.useState(0);
+  const helmetList = props.gear.helmets.map(helm => (
+    <button
+      key={helm.name}
+      className={classNames(
+        styles.Helmet,
+        styles[helm.name + "h"],
+        helm.name === props.curHelmet && styles[helm.name + "h_active"]
+      )}
+      onClick={() => props.onSelectHelmet(helm.name)}
+    />
+  ));
+
+  const vestList = props.gear.vests.map(vest => (
+    <button
+      key={vest.name}
+      className={classNames(
+        styles.Vest,
+        styles[vest.name + "v"],
+        vest.name === props.curVest && styles[vest.name + "v_active"]
+      )}
+      onClick={() => props.onSelectVest(vest.name)}
+    />
+  ));
+
   return (
     <div className={styles.LeftTools}>
       <p style={{ textAlign: "center", fontSize: "20px" }}>
-        Select helmet and vest levels.
+        Select helmet and vest levels
       </p>
-      <div>
-        {HELMETS.map(helm => (
-          <button
-            className={classNames(
-              styles.Helmet,
-              helm.style,
-              helm.id === helmType && helm.activeStyle
-            )}
-            key={helm.id}
-            onClick={() => setHelmType(helm.id)}
-          />
-        ))}
-      </div>
-      <div>
-        {VESTS.map(vest => (
-          <button
-            className={classNames(
-              styles.Vest,
-              vest.style,
-              vest.id === vestType && vest.activeStyle
-            )}
-            key={vest.id}
-            onClick={() => setVestType(vest.id)}
-          />
-        ))}
-      </div>
+      <div>{helmetList}</div>
+      <div>{vestList}</div>
     </div>
   );
 };
 
 const mapStateToProps = state => {
   return {
-    gear: state.gear
+    gear: state.gear,
+    curHelmet: state.curHelmet,
+    curVest: state.curVest
   };
 };
 
-export default connect(mapStateToProps)(LeftTools);
+const mapDispatchToProps = dispatch => {
+  return {
+    onSelectHelmet: newHelmet => dispatch(actions.setHelmet(newHelmet)),
+    onSelectVest: newVest => dispatch(actions.setVest(newVest))
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(LeftTools);

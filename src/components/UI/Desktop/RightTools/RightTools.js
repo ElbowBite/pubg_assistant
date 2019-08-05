@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import classNames from "classnames";
 
 import styles from "./RightTools.module.css";
+import * as actions from "../../../../store/actions";
 
 const RightTools = props => {
   /* const name = "AKM";		//Dynamic rendering based on state contents
@@ -29,17 +30,26 @@ const RightTools = props => {
   //Weapon types buttons generation
   const weapTypesSelector = weapTypes.map(weapType => {
     return (
-      <button key={weapType} className={styles.WeapType} name={weapType}>
+      <button
+        key={weapType}
+        className={styles.WeapType}
+        onClick={() => props.onWeapTypeSelect(weapType)}
+      >
         {weapType}
       </button>
     );
   });
 
-  const curWeapList = props.weapons[props.curWeapType].map((weapon, index) => {
+  const curWeapList = props.weapons[props.curWeapType].map(weapon => {
     return (
       <button
         key={weapon.name}
-        className={classNames(styles.Weapons, styles[weapon.name])}
+        className={classNames(
+          styles.Weapons,
+          styles[weapon.name],
+          weapon.name === props.curWeapon && styles[weapon.name + "_active"]
+        )}
+				onClick={() => props.onWeaponSelect(weapon.name)}
       />
     );
   });
@@ -58,8 +68,20 @@ const RightTools = props => {
 const mapStateToProps = state => {
   return {
     weapons: state.weapons,
-    curWeapType: state.curWeapType
+    curWeapType: state.curWeapType,
+    curWeapon: state.curWeapon
   };
 };
 
-export default connect(mapStateToProps)(RightTools);
+const mapDispatchToProps = dispatch => {
+  return {
+    onWeapTypeSelect: newWeapType =>
+      dispatch(actions.changeWeapType(newWeapType)),
+    onWeaponSelect: newWeapon => dispatch(actions.setWeapon(newWeapon))
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(RightTools);
