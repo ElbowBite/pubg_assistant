@@ -1,6 +1,4 @@
 .Torso {
-/* 	transform: scale(1.2);
-  transform-origin: 0 0; */
   position: relative;
   min-width: 225px;
   min-height: 512px;
@@ -10,7 +8,6 @@
 	font-size: 15px;
 	display: inline-block;
 	text-align: center;
-	/* border: 1px solid red; */
 }
 
 span {
@@ -24,7 +21,7 @@ span {
 
 .Neck {
 	position: relative;
-	top: 50px;
+	top: 53px;
 }
 
 .Shoulder {
@@ -91,4 +88,34 @@ span {
 	top: 282px;
 	left: 19px;
 	font-size: 12px;
+}
+
+.HitsToKill_1 {
+	color: red;
+}
+
+.HitsToKill_2 {
+	color: orange;
+}
+
+.HitsToKill_3 {
+	color: yellow;
+}
+
+.HitsToKill_4 {
+	color: rgb(0, 192, 0);
+}
+
+.HitsToKill_5,
+.HitsToKill_6,
+.HitsToKill_7,
+.HitsToKill_8,
+.HitsToKill_9,
+.HitsToKill_10,
+.HitsToKill_11,
+.HitsToKill_12,
+.HitsToKill_13,
+.HitsToKill_14,
+.HitsToKill_15 {
+	color: rgb(0, 89, 255);
 }

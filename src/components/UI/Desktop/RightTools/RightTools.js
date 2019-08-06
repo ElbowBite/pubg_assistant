@@ -6,16 +6,6 @@ import styles from "./RightTools.module.css";
 import * as actions from "../../../../store/actions";
 
 const RightTools = props => {
-  /* const name = "AKM";		//Dynamic rendering based on state contents
-  const value = props.weapons.ARs.reduce((pv, cv) => {
-    if (cv.name === name) {
-      return cv.baseDmg;
-    }
-    return pv;
-  }, "");
-  console.log(value);
-	return <button className={styles.lvl1h} />;	//Wrong styling */
-
   //Array of weapon types. TO replace with state.weapons[***] from reducer !!!
   const weapTypes = [
     "ARs",
@@ -58,7 +48,7 @@ const RightTools = props => {
     <div className={styles.RightTools}>
       <div>
         <p style={{ textAlign: "center", fontSize: "20px" }}>Select weapon</p>
-        {weapTypesSelector}
+				{weapTypesSelector}
       </div>
       <div>{curWeapList}</div>
     </div>

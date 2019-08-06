@@ -1,7 +1,7 @@
 .RightTools {
 	max-width: 384px;
 	min-height: 205px;
-	/* border: solid blue 1px; */
+	align-content: center;
 }
 
 .WeapType {
