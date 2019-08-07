@@ -6,6 +6,7 @@ import styles from "./RightTools.module.css";
 import * as actions from "../../../../store/actions";
 
 const RightTools = props => {
+  const { current: { WeaponType, Weapon } } = props;
   //Array of weapon types. TO replace with state.weapons[***] from reducer !!!
   const weapTypes = [
     "ARs",
@@ -26,7 +27,12 @@ const RightTools = props => {
           styles.WeapType,
           weapType === props.current.WeaponType && styles.WeapType_active
         )}
-        onClick={() => props.onWeapTypeSelect(weapType)}
+        //  onClick={() => props.onWeapTypeSelect(weapType)}
+        onClick={() =>
+          WeaponType === weapType
+            ? {}
+            : props.onSelectCurrent({ WeaponType: weapType })
+        }
       >
         {weapType}
       </button>
@@ -43,7 +49,11 @@ const RightTools = props => {
           weapon.name === props.current.Weapon &&
             styles[weapon.name + "_active"]
         )}
-        onClick={() => props.onWeaponSelect(weapon.name)}
+        onClick={() =>
+          Weapon === weapon.name
+            ? {}
+            : props.onSelectCurrent({ Weapon: weapon.name })
+        }
       />
     );
   });
@@ -68,6 +78,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
+    onSelectCurrent: payload => dispatch(actions.setCurrentProps(payload)),
     onWeapTypeSelect: newWeapType => dispatch(actions.setWeapType(newWeapType)),
     onWeaponSelect: newWeapon => dispatch(actions.setWeapon(newWeapon))
   };

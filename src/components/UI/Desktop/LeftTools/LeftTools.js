@@ -6,6 +6,7 @@ import styles from "./LeftTools.module.css";
 import * as actions from "../../../../store/actions";
 
 const LeftTools = props => {
+  const { current: { Helmet, Vest } } = props;
   const viewTypes = ["DMG", "HTK", "TTK"];
   const viewTypeSelector = viewTypes.map(view => {
     return (
@@ -29,7 +30,12 @@ const LeftTools = props => {
         styles[helm.name + "h"],
         helm.name === props.current.Helmet && styles[helm.name + "h_active"]
       )}
-      onClick={() => props.onSelectHelmet(helm.name)}
+      //  onClick={() => props.onSelectHelmet(helm.name)}
+      onClick={() =>
+        Helmet === helm.name
+          ? {}
+          : props.onSelectCurrent({ Helmet: helm.name })
+      }
     />
   ));
   /* Forming list of vests */
@@ -41,7 +47,12 @@ const LeftTools = props => {
         styles[vest.name + "v"],
         vest.name === props.current.Vest && styles[vest.name + "v_active"]
       )}
-      onClick={() => props.onSelectVest(vest.name)}
+      //  onClick={() => props.onSelectVest(vest.name)}
+      onClick={() =>
+        Vest === vest.name
+          ? {}
+          : props.onSelectCurrent({ Vest: vest.name })
+      }
     />
   ));
 
@@ -66,8 +77,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onSelectHelmet: newHelmet => dispatch(actions.setHelmet(newHelmet)),
-		onSelectVest: newVest => dispatch(actions.setVest(newVest)),
+    onSelectCurrent: payload => dispatch(actions.setCurrentProps(payload)),
+    //  onSelectHelmet: newHelmet => dispatch(actions.setHelmet(newHelmet)),
+		//  onSelectVest: newVest => dispatch(actions.setVest(newVest)),
 		onSelectView: newView => dispatch(actions.setView(newView))
   };
 };
