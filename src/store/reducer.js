@@ -1,5 +1,4 @@
 import * as actionTypes from "./actionTypes";
-import { updateObject } from "../shared/utility";
 
 const initState = {
   weapons: {
@@ -200,548 +199,563 @@ const initState = {
       }
     ]
   },
-  curWeapType: "ARs",
-  curWeapon: "AKM",
   gear: {
     helmets: [
-			{
-				name: "lvl0",
-				dmgMulitplier: 1
-			},
+      {
+        name: "lvl0",
+        dmgMulitplier: 1
+      },
       {
         name: "lvl1",
-        dmgMulitplier: 0.3
+        dmgMulitplier: 0.7
       },
       {
         name: "lvl2",
-        dmgMulitplier: 0.4
+        dmgMulitplier: 0.6
       },
       {
         name: "lvl3",
-        dmgMulitplier: 0.55
+        dmgMulitplier: 0.45
       }
     ],
     vests: [
-			{
-				name: "lvl0",
-				dmgMulitplier: 1
-			},
+      {
+        name: "lvl0",
+        dmgMulitplier: 1
+      },
       {
         name: "lvl1",
-        dmgMulitplier: 0.3
+        dmgMulitplier: 0.7
       },
       {
         name: "lvl2",
-        dmgMulitplier: 0.4
+        dmgMulitplier: 0.6
       },
       {
         name: "lvl3",
-        dmgMulitplier: 0.55
+        dmgMulitplier: 0.45
       }
     ]
   },
-  curHelmet: "lvl0",
-	curVest: "lvl0",
-	dmgMulitpliers: {
-		ARs: [
-			{
-				name: "Head",
-				multiplier: 2.35
-			},
-			{
-				name: "Neck",
-				multiplier: 2.35
-			},
-			{
-				name: "Shoulder",
-				multiplier: 1
-			},
-			{
-				name: "UpperArm",
-				multiplier: 0.9
-			},
-			{
-				name: "Chest",
-				multiplier: 1
-			},
-			{
-				name: "LowerArm",
-				multiplier: 0.9
-			},
-			{
-				name: "Stomach",
-				multiplier: 1
-			},
-			{
-				name: "LowerStomach",
-				multiplier: 1
-			},
-			{
-				name: "Groin",
-				multiplier: 1
-			},
-			{
-				name: "Hand",
-				multiplier: 0.9
-			},
-			{
-				name: "Thigh",
-				multiplier: 0.9
-			},
-			{
-				name: "Calf",
-				multiplier: 0.9
-			},
-			{
-				name: "Foot",
-				multiplier: 0.9
-			}
-		],
-		DMRs: [
-			{
-				name: "Head",
-				multiplier: 2.35
-			},
-			{
-				name: "Neck",
-				multiplier: 2.35
-			},
-			{
-				name: "Shoulder",
-				multiplier: 1.05
-			},
-			{
-				name: "UpperArm",
-				multiplier: 0.95
-			},
-			{
-				name: "Chest",
-				multiplier: 1.05
-			},
-			{
-				name: "LowerArm",
-				multiplier: 0.95
-			},
-			{
-				name: "Stomach",
-				multiplier: 1.05
-			},
-			{
-				name: "LowerStomach",
-				multiplier: 1.05
-			},
-			{
-				name: "Groin",
-				multiplier: 1.05
-			},
-			{
-				name: "Hand",
-				multiplier: 0.95
-			},
-			{
-				name: "Thigh",
-				multiplier: 0.95
-			},
-			{
-				name: "Calf",
-				multiplier: 0.95
-			},
-			{
-				name: "Foot",
-				multiplier: 0.95
-			}
-		],
-		LMGs: [
-			{
-				name: "Head",
-				multiplier: 2.35
-			},
-			{
-				name: "Neck",
-				multiplier: 2.35
-			},
-			{
-				name: "Shoulder",
-				multiplier: 1
-			},
-			{
-				name: "UpperArm",
-				multiplier: 0.9
-			},
-			{
-				name: "Chest",
-				multiplier: 1
-			},
-			{
-				name: "LowerArm",
-				multiplier: 0.9
-			},
-			{
-				name: "Stomach",
-				multiplier: 1
-			},
-			{
-				name: "LowerStomach",
-				multiplier: 1
-			},
-			{
-				name: "Groin",
-				multiplier: 1
-			},
-			{
-				name: "Hand",
-				multiplier: 0.9
-			},
-			{
-				name: "Thigh",
-				multiplier: 0.9
-			},
-			{
-				name: "Calf",
-				multiplier: 0.9
-			},
-			{
-				name: "Foot",
-				multiplier: 0.9
-			}
-		],
-		Melee: [
-			{
-				name: "Head",
-				multiplier: 1.5
-			},
-			{
-				name: "Neck",
-				multiplier: 1.5
-			},
-			{
-				name: "Shoulder",
-				multiplier: 1
-			},
-			{
-				name: "UpperArm",
-				multiplier: 1.2
-			},
-			{
-				name: "Chest",
-				multiplier: 1
-			},
-			{
-				name: "LowerArm",
-				multiplier: 1.2
-			},
-			{
-				name: "Stomach",
-				multiplier: 1
-			},
-			{
-				name: "LowerStomach",
-				multiplier: 1
-			},
-			{
-				name: "Groin",
-				multiplier: 1
-			},
-			{
-				name: "Hand",
-				multiplier: 1.2
-			},
-			{
-				name: "Thigh",
-				multiplier: 1.2
-			},
-			{
-				name: "Calf",
-				multiplier: 1.2
-			},
-			{
-				name: "Foot",
-				multiplier: 1.2
-			}
-		],
-		Pistols: [
-			{
-				name: "Head",
-				multiplier: 2
-			},
-			{
-				name: "Neck",
-				multiplier: 2
-			},
-			{
-				name: "Shoulder",
-				multiplier: 1
-			},
-			{
-				name: "UpperArm",
-				multiplier: 1
-			},
-			{
-				name: "Chest",
-				multiplier: 1
-			},
-			{
-				name: "LowerArm",
-				multiplier: 1
-			},
-			{
-				name: "Stomach",
-				multiplier: 1
-			},
-			{
-				name: "LowerStomach",
-				multiplier: 1
-			},
-			{
-				name: "Groin",
-				multiplier: 1
-			},
-			{
-				name: "Hand",
-				multiplier: 1
-			},
-			{
-				name: "Thigh",
-				multiplier: 1
-			},
-			{
-				name: "Calf",
-				multiplier: 1
-			},
-			{
-				name: "Foot",
-				multiplier: 1
-			}
-		],
-		SGs: [
-			{
-				name: "Head",
-				multiplier: 1.5
-			},
-			{
-				name: "Neck",
-				multiplier: 1.5
-			},
-			{
-				name: "Shoulder",
-				multiplier: 1
-			},
-			{
-				name: "UpperArm",
-				multiplier: 0.9
-			},
-			{
-				name: "Chest",
-				multiplier: 1
-			},
-			{
-				name: "LowerArm",
-				multiplier: 0.9
-			},
-			{
-				name: "Stomach",
-				multiplier: 1
-			},
-			{
-				name: "LowerStomach",
-				multiplier: 1
-			},
-			{
-				name: "Groin",
-				multiplier: 1
-			},
-			{
-				name: "Hand",
-				multiplier: 0.9
-			},
-			{
-				name: "Thigh",
-				multiplier: 0.9
-			},
-			{
-				name: "Calf",
-				multiplier: 0.9
-			},
-			{
-				name: "Foot",
-				multiplier: 0.9
-			}
-		],
-		SMGs: [
-			{
-				name: "Head",
-				multiplier: 1.8
-			},
-			{
-				name: "Neck",
-				multiplier: 1.8
-			},
-			{
-				name: "Shoulder",
-				multiplier: 1.05
-			},
-			{
-				name: "UpperArm",
-				multiplier: 1.3
-			},
-			{
-				name: "Chest",
-				multiplier: 1.05
-			},
-			{
-				name: "LowerArm",
-				multiplier: 1.3
-			},
-			{
-				name: "Stomach",
-				multiplier: 1.05
-			},
-			{
-				name: "LowerStomach",
-				multiplier: 1.05
-			},
-			{
-				name: "Groin",
-				multiplier: 1
-			},
-			{
-				name: "Hand",
-				multiplier: 1.3
-			},
-			{
-				name: "Thigh",
-				multiplier: 1.3
-			},
-			{
-				name: "Calf",
-				multiplier: 1.3
-			},
-			{
-				name: "Foot",
-				multiplier: 1.3
-			}
-		],
-		SRs: [
-			{
-				name: "Head",
-				multiplier: 2.5
-			},
-			{
-				name: "Neck",
-				multiplier: 2.5
-			},
-			{
-				name: "Shoulder",
-				multiplier: 1.3
-			},
-			{
-				name: "UpperArm",
-				multiplier: 0.95
-			},
-			{
-				name: "Chest",
-				multiplier: 1.3
-			},
-			{
-				name: "LowerArm",
-				multiplier: 0.95
-			},
-			{
-				name: "Stomach",
-				multiplier: 1.3
-			},
-			{
-				name: "LowerStomach",
-				multiplier: 1.3
-			},
-			{
-				name: "Groin",
-				multiplier: 1.1
-			},
-			{
-				name: "Hand",
-				multiplier: 0.95
-			},
-			{
-				name: "Thigh",
-				multiplier: 0.95
-			},
-			{
-				name: "Calf",
-				multiplier: 0.95
-			},
-			{
-				name: "Foot",
-				multiplier: 0.95
-			}
-		],
-		Crossbow: [
-			{
-				name: "Head",
-				multiplier: 2.3
-			},
-			{
-				name: "Neck",
-				multiplier: 2.3
-			},
-			{
-				name: "Shoulder",
-				multiplier: 1.4
-			},
-			{
-				name: "UpperArm",
-				multiplier: 1.2
-			},
-			{
-				name: "Chest",
-				multiplier: 1.4
-			},
-			{
-				name: "LowerArm",
-				multiplier: 1.2
-			},
-			{
-				name: "Stomach",
-				multiplier: 1.4
-			},
-			{
-				name: "LowerStomach",
-				multiplier: 1.4
-			},
-			{
-				name: "Groin",
-				multiplier: 1.4
-			},
-			{
-				name: "Hand",
-				multiplier: 1.2
-			},
-			{
-				name: "Thigh",
-				multiplier: 1.2
-			},
-			{
-				name: "Calf",
-				multiplier: 1.2
-			},
-			{
-				name: "Foot",
-				multiplier: 1.2
-			}
-		]
-	}
+  current: {
+    Helmet: "lvl0",
+    Vest: "lvl0",
+    WeaponType: "ARs",
+    Weapon: "AKM",
+    View: "DMG"
+  },
+  dmgMulitpliers: {
+    ARs: [
+      {
+        name: "Head",
+        multiplier: 2.35
+      },
+      {
+        name: "Neck",
+        multiplier: 2.35
+      },
+      {
+        name: "Shoulder",
+        multiplier: 1
+      },
+      {
+        name: "UpperArm",
+        multiplier: 0.9
+      },
+      {
+        name: "Chest",
+        multiplier: 1
+      },
+      {
+        name: "LowerArm",
+        multiplier: 0.9
+      },
+      {
+        name: "Stomach",
+        multiplier: 1
+      },
+      {
+        name: "LowerStomach",
+        multiplier: 1
+      },
+      {
+        name: "Groin",
+        multiplier: 1
+      },
+      {
+        name: "Hand",
+        multiplier: 0.9
+      },
+      {
+        name: "Thigh",
+        multiplier: 0.9
+      },
+      {
+        name: "Calf",
+        multiplier: 0.9
+      },
+      {
+        name: "Foot",
+        multiplier: 0.9
+      }
+    ],
+    DMRs: [
+      {
+        name: "Head",
+        multiplier: 2.35
+      },
+      {
+        name: "Neck",
+        multiplier: 2.35
+      },
+      {
+        name: "Shoulder",
+        multiplier: 1.05
+      },
+      {
+        name: "UpperArm",
+        multiplier: 0.95
+      },
+      {
+        name: "Chest",
+        multiplier: 1.05
+      },
+      {
+        name: "LowerArm",
+        multiplier: 0.95
+      },
+      {
+        name: "Stomach",
+        multiplier: 1.05
+      },
+      {
+        name: "LowerStomach",
+        multiplier: 1.05
+      },
+      {
+        name: "Groin",
+        multiplier: 1.05
+      },
+      {
+        name: "Hand",
+        multiplier: 0.95
+      },
+      {
+        name: "Thigh",
+        multiplier: 0.95
+      },
+      {
+        name: "Calf",
+        multiplier: 0.95
+      },
+      {
+        name: "Foot",
+        multiplier: 0.95
+      }
+    ],
+    LMGs: [
+      {
+        name: "Head",
+        multiplier: 2.35
+      },
+      {
+        name: "Neck",
+        multiplier: 2.35
+      },
+      {
+        name: "Shoulder",
+        multiplier: 1
+      },
+      {
+        name: "UpperArm",
+        multiplier: 0.9
+      },
+      {
+        name: "Chest",
+        multiplier: 1
+      },
+      {
+        name: "LowerArm",
+        multiplier: 0.9
+      },
+      {
+        name: "Stomach",
+        multiplier: 1
+      },
+      {
+        name: "LowerStomach",
+        multiplier: 1
+      },
+      {
+        name: "Groin",
+        multiplier: 1
+      },
+      {
+        name: "Hand",
+        multiplier: 0.9
+      },
+      {
+        name: "Thigh",
+        multiplier: 0.9
+      },
+      {
+        name: "Calf",
+        multiplier: 0.9
+      },
+      {
+        name: "Foot",
+        multiplier: 0.9
+      }
+    ],
+    Melee: [
+      {
+        name: "Head",
+        multiplier: 1.5
+      },
+      {
+        name: "Neck",
+        multiplier: 1.5
+      },
+      {
+        name: "Shoulder",
+        multiplier: 1
+      },
+      {
+        name: "UpperArm",
+        multiplier: 1.2
+      },
+      {
+        name: "Chest",
+        multiplier: 1
+      },
+      {
+        name: "LowerArm",
+        multiplier: 1.2
+      },
+      {
+        name: "Stomach",
+        multiplier: 1
+      },
+      {
+        name: "LowerStomach",
+        multiplier: 1
+      },
+      {
+        name: "Groin",
+        multiplier: 1
+      },
+      {
+        name: "Hand",
+        multiplier: 1.2
+      },
+      {
+        name: "Thigh",
+        multiplier: 1.2
+      },
+      {
+        name: "Calf",
+        multiplier: 1.2
+      },
+      {
+        name: "Foot",
+        multiplier: 1.2
+      }
+    ],
+    Pistols: [
+      {
+        name: "Head",
+        multiplier: 2
+      },
+      {
+        name: "Neck",
+        multiplier: 2
+      },
+      {
+        name: "Shoulder",
+        multiplier: 1
+      },
+      {
+        name: "UpperArm",
+        multiplier: 1
+      },
+      {
+        name: "Chest",
+        multiplier: 1
+      },
+      {
+        name: "LowerArm",
+        multiplier: 1
+      },
+      {
+        name: "Stomach",
+        multiplier: 1
+      },
+      {
+        name: "LowerStomach",
+        multiplier: 1
+      },
+      {
+        name: "Groin",
+        multiplier: 1
+      },
+      {
+        name: "Hand",
+        multiplier: 1
+      },
+      {
+        name: "Thigh",
+        multiplier: 1
+      },
+      {
+        name: "Calf",
+        multiplier: 1
+      },
+      {
+        name: "Foot",
+        multiplier: 1
+      }
+    ],
+    SGs: [
+      {
+        name: "Head",
+        multiplier: 1.5
+      },
+      {
+        name: "Neck",
+        multiplier: 1.5
+      },
+      {
+        name: "Shoulder",
+        multiplier: 1
+      },
+      {
+        name: "UpperArm",
+        multiplier: 0.9
+      },
+      {
+        name: "Chest",
+        multiplier: 1
+      },
+      {
+        name: "LowerArm",
+        multiplier: 0.9
+      },
+      {
+        name: "Stomach",
+        multiplier: 1
+      },
+      {
+        name: "LowerStomach",
+        multiplier: 1
+      },
+      {
+        name: "Groin",
+        multiplier: 1
+      },
+      {
+        name: "Hand",
+        multiplier: 0.9
+      },
+      {
+        name: "Thigh",
+        multiplier: 0.9
+      },
+      {
+        name: "Calf",
+        multiplier: 0.9
+      },
+      {
+        name: "Foot",
+        multiplier: 0.9
+      }
+    ],
+    SMGs: [
+      {
+        name: "Head",
+        multiplier: 1.8
+      },
+      {
+        name: "Neck",
+        multiplier: 1.8
+      },
+      {
+        name: "Shoulder",
+        multiplier: 1.05
+      },
+      {
+        name: "UpperArm",
+        multiplier: 1.3
+      },
+      {
+        name: "Chest",
+        multiplier: 1.05
+      },
+      {
+        name: "LowerArm",
+        multiplier: 1.3
+      },
+      {
+        name: "Stomach",
+        multiplier: 1.05
+      },
+      {
+        name: "LowerStomach",
+        multiplier: 1.05
+      },
+      {
+        name: "Groin",
+        multiplier: 1
+      },
+      {
+        name: "Hand",
+        multiplier: 1.3
+      },
+      {
+        name: "Thigh",
+        multiplier: 1.3
+      },
+      {
+        name: "Calf",
+        multiplier: 1.3
+      },
+      {
+        name: "Foot",
+        multiplier: 1.3
+      }
+    ],
+    SRs: [
+      {
+        name: "Head",
+        multiplier: 2.5
+      },
+      {
+        name: "Neck",
+        multiplier: 2.5
+      },
+      {
+        name: "Shoulder",
+        multiplier: 1.3
+      },
+      {
+        name: "UpperArm",
+        multiplier: 0.95
+      },
+      {
+        name: "Chest",
+        multiplier: 1.3
+      },
+      {
+        name: "LowerArm",
+        multiplier: 0.95
+      },
+      {
+        name: "Stomach",
+        multiplier: 1.3
+      },
+      {
+        name: "LowerStomach",
+        multiplier: 1.3
+      },
+      {
+        name: "Groin",
+        multiplier: 1.1
+      },
+      {
+        name: "Hand",
+        multiplier: 0.95
+      },
+      {
+        name: "Thigh",
+        multiplier: 0.95
+      },
+      {
+        name: "Calf",
+        multiplier: 0.95
+      },
+      {
+        name: "Foot",
+        multiplier: 0.95
+      }
+    ],
+    Crossbow: [
+      {
+        name: "Head",
+        multiplier: 2.3
+      },
+      {
+        name: "Neck",
+        multiplier: 2.3
+      },
+      {
+        name: "Shoulder",
+        multiplier: 1.4
+      },
+      {
+        name: "UpperArm",
+        multiplier: 1.2
+      },
+      {
+        name: "Chest",
+        multiplier: 1.4
+      },
+      {
+        name: "LowerArm",
+        multiplier: 1.2
+      },
+      {
+        name: "Stomach",
+        multiplier: 1.4
+      },
+      {
+        name: "LowerStomach",
+        multiplier: 1.4
+      },
+      {
+        name: "Groin",
+        multiplier: 1.4
+      },
+      {
+        name: "Hand",
+        multiplier: 1.2
+      },
+      {
+        name: "Thigh",
+        multiplier: 1.2
+      },
+      {
+        name: "Calf",
+        multiplier: 1.2
+      },
+      {
+        name: "Foot",
+        multiplier: 1.2
+      }
+    ]
+  }
+};
+
+const updateObject = (oldObj, newProps) => {
+  return {
+    ...oldObj,
+    current: {
+      ...oldObj.current,
+      ...newProps
+    }
+  };
 };
 
 const reducer = (state = initState, action) => {
   switch (action.type) {
-    case actionTypes.CHANGE_WEAPON_TYPE:
-      return updateObject(state, { curWeapType: action.newWeapType });
+    case actionTypes.SET_WEAPON_TYPE:
+      return updateObject(state, { WeaponType: action.newWeapType });
     case actionTypes.SET_WEAPON:
-      return updateObject(state, { curWeapon: action.newWeapon });
+      return updateObject(state, { Weapon: action.newWeapon });
     case actionTypes.SET_HELMET:
-      return updateObject(state, { curHelmet: action.newHelmet });
+      return updateObject(state, { Helmet: action.newHelmet });
     case actionTypes.SET_VEST:
-      return updateObject(state, { curVest: action.newVest });
+      return updateObject(state, { Vest: action.newVest });
+    case actionTypes.SET_VIEW:
+      return updateObject(state, { View: action.newView });
     default:
       return state;
   }

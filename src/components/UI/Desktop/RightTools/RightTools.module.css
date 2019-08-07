@@ -14,6 +14,9 @@
 	-webkit-transform: scale(1.4) rotate(5deg);
   transform: scale(1.4) rotate(5deg);
 }
+.WeapType_active {
+	text-shadow: 0 0 10px #ffaa00ba;
+}
 
 .Weapons {
 	width: 96px;
@@ -396,4 +399,12 @@
 .Win94:hover,
 .Win94_active {
 	background-image: url('../../../../assets/images/main/weapons/selected/SRs/Win94.png');
+}
+
+.Crossbow {
+	background-image: url('../../../../assets/images/main/weapons/SRs/Crossbow.png');
+}
+.Crossbow:hover,
+.Crossbow_active {
+	background-image: url('../../../../assets/images/main/weapons/selected/SRs/Crossbow.png');
 }

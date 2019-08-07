@@ -13,7 +13,8 @@ code {
     monospace;
 }
 
-p {
+p,
+label {
 	color: #f2aa00;
 }
 

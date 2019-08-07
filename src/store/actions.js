@@ -1,8 +1,8 @@
 import * as actionTypes from "./actionTypes";
 
-export const changeWeapType = newWeapType => {
+export const setWeapType = newWeapType => {
   return {
-    type: actionTypes.CHANGE_WEAPON_TYPE,
+    type: actionTypes.SET_WEAPON_TYPE,
     newWeapType: newWeapType
   };
 };
@@ -25,5 +25,12 @@ export const setVest = newVest => {
   return {
     type: actionTypes.SET_VEST,
     newVest: newVest
+  };
+};
+
+export const setView = newView => {
+  return {
+    type: actionTypes.SET_VIEW,
+    newView: newView
   };
 };

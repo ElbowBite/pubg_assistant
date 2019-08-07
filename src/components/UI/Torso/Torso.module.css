@@ -12,6 +12,7 @@
 
 span {
 	display: block;
+	font-weight: 500;
 }
 
 .Head {
@@ -28,12 +29,22 @@ span {
 	position: relative;
 	top: 30px;
 	left: 50px;
+	text-shadow:
+		-1px -1px 0 rgb(0, 0, 0),  
+		1px -1px 0 rgb(0, 0, 0),
+		-1px 1px 0 rgb(0, 0, 0),
+		1px 1px 0 rgb(0, 0, 0);
 }
 
 .UpperArm {
 	position: relative;
 	top: 65px;
-	left: 85px;
+	left: 86px;
+	text-shadow:
+		-1px -1px 0 rgb(0, 0, 0),  
+		1px -1px 0 rgb(0, 0, 0),
+		-1px 1px 0 rgb(0, 0, 0),
+		1px 1px 0 rgb(0, 0, 0);
 }
 
 .Chest {
@@ -106,7 +117,10 @@ span {
 	color: rgb(0, 192, 0);
 }
 
-.HitsToKill_5,
+.HitsToKill_5 {
+	color: rgb(0, 119, 255);
+}
+
 .HitsToKill_6,
 .HitsToKill_7,
 .HitsToKill_8,
@@ -117,5 +131,5 @@ span {
 .HitsToKill_13,
 .HitsToKill_14,
 .HitsToKill_15 {
-	color: rgb(0, 89, 255);
+	color: rgb(130, 52, 255);
 }

@@ -22,7 +22,10 @@ const RightTools = props => {
     return (
       <button
         key={weapType}
-        className={styles.WeapType}
+        className={classNames(
+          styles.WeapType,
+          weapType === props.current.WeaponType && styles.WeapType_active
+        )}
         onClick={() => props.onWeapTypeSelect(weapType)}
       >
         {weapType}
@@ -30,16 +33,17 @@ const RightTools = props => {
     );
   });
 
-  const curWeapList = props.weapons[props.curWeapType].map(weapon => {
+  const curWeapList = props.weapons[props.current.WeaponType].map(weapon => {
     return (
       <button
         key={weapon.name}
         className={classNames(
           styles.Weapons,
           styles[weapon.name],
-          weapon.name === props.curWeapon && styles[weapon.name + "_active"]
+          weapon.name === props.current.Weapon &&
+            styles[weapon.name + "_active"]
         )}
-				onClick={() => props.onWeaponSelect(weapon.name)}
+        onClick={() => props.onWeaponSelect(weapon.name)}
       />
     );
   });
@@ -48,7 +52,7 @@ const RightTools = props => {
     <div className={styles.RightTools}>
       <div>
         <p style={{ textAlign: "center", fontSize: "20px" }}>Select weapon</p>
-				{weapTypesSelector}
+        {weapTypesSelector}
       </div>
       <div>{curWeapList}</div>
     </div>
@@ -58,15 +62,13 @@ const RightTools = props => {
 const mapStateToProps = state => {
   return {
     weapons: state.weapons,
-    curWeapType: state.curWeapType,
-    curWeapon: state.curWeapon
+    current: state.current
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    onWeapTypeSelect: newWeapType =>
-      dispatch(actions.changeWeapType(newWeapType)),
+    onWeapTypeSelect: newWeapType => dispatch(actions.setWeapType(newWeapType)),
     onWeaponSelect: newWeapon => dispatch(actions.setWeapon(newWeapon))
   };
 };
