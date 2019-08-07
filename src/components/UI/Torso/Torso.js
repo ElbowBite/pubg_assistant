@@ -52,85 +52,84 @@ const Torso = props => {
     weapBaseDmg
   ) => {
     return areaMultiplier * baseAreaMultiplier * weapBaseDmg;
-	};
-	/* Checking if current weapon is a crossbow and needs its own dmg multiplier to be used */
-	let multiplierToUse = null;
-	if (props.current.Weapon === "Crossbow") {
-		multiplierToUse = "Crossbow"
-	} else {
-		multiplierToUse = props.current.WeaponType
-	};
+  };
+  /* Checking if current weapon is a crossbow and needs its own dmg multiplier to be used */
+  let multiplierToUse = null;
+  if (props.current.Weapon === "Crossbow") {
+    multiplierToUse = "Crossbow";
+  } else {
+    multiplierToUse = props.current.WeaponType;
+  }
   /* Forming list of spans with damage dealt to area */
-  const dmgAreas = props.dmgMulitpliers[multiplierToUse].map(
-    multiplier => {
-			/* Calculating damage before armor */
-			let dmgBeforeArmor = damagBeforeArmor(
-				multiplier.multiplier,
-				baseAreaDmgMulitpliers[multiplier.name],
-				curBaseDmg
-			);
-      /* Calculating damage with helmet multiplier */
-      let dmgWithHelmet = (dmgBeforeArmor * curHelmetDmgMultiplier).toFixed(1);
-      /* Calculating damage with vest multiplier */
-			let dmgWithVest = (dmgBeforeArmor * curVestDmgMultiplier).toFixed(1);
-			/* Checking currently selected view type */
-			if (props.current.View === "HTK") {
-				dmgBeforeArmor = Math.ceil(100 / dmgBeforeArmor).toString(10);
-				dmgWithHelmet = Math.ceil(100 / dmgWithHelmet).toString(10);
-				dmgWithVest = Math.ceil(100 / dmgWithVest).toString(10);
-			}
-      /* Outputing spans with damage */
-      switch (multiplier.name) {
-        case "Head":
-        case "Neck":
-          return (
-            <span
-              key={multiplier.name}
-              className={classNames(
-                styles[multiplier.name],
-                styles[
-                  "HitsToKill_" + Math.ceil(100 / dmgWithHelmet).toString(10)
-                ]
-              )}
-            >
-              {dmgWithHelmet}
-            </span>
-          );
-        case "Shoulder":
-        case "Chest":
-        case "Stomach":
-        case "LowerStomach":
-        case "Groin":
-          return (
-            <span
-              key={multiplier.name}
-              className={classNames(
-                styles[multiplier.name],
-                styles[
-                  "HitsToKill_" + Math.ceil(100 / dmgWithVest).toString(10)
-                ]
-              )}
-            >
-              {dmgWithVest}
-            </span>
-          );
-        default:
-          return (
-            <span
-              key={multiplier.name}
-              className={classNames(
-                styles[multiplier.name],
-                styles[
-                  "HitsToKill_" + Math.ceil(100 / dmgBeforeArmor).toString(10)
-                ]
-              )}
-            >
-              {dmgBeforeArmor.toFixed(1)}
-            </span>
-          );
-      }
+  const dmgAreas = props.dmgMulitpliers[multiplierToUse].map(multiplier => {
+    /* Calculating damage before armor */
+    const dmgBeforeArmor = damagBeforeArmor(
+      multiplier.multiplier,
+      baseAreaDmgMulitpliers[multiplier.name],
+      curBaseDmg
+    ).toFixed(1);
+    /* Calculating damage with helmet multiplier */
+    const dmgWithHelmet = (dmgBeforeArmor * curHelmetDmgMultiplier).toFixed(1);
+    /* Calculating damage with vest multiplier */
+    const dmgWithVest = (dmgBeforeArmor * curVestDmgMultiplier).toFixed(1);
+    /* Calculating number of hits to kill */
+    const htkBeforeArmor = Math.ceil(100 / dmgBeforeArmor).toString(10);
+    const htkWithHelmet = Math.ceil(100 / dmgWithHelmet).toString(10);
+    const htkWithVest = Math.ceil(100 / dmgWithVest).toString(10);
+		/* Defining what to show on torso */
+		let helmetSpan = dmgWithHelmet;
+    let vestSpan = dmgWithVest;
+		let restSpan = dmgBeforeArmor;
+    if (props.current.View === "HTK") {
+      helmetSpan = htkWithHelmet;
+      vestSpan = htkWithVest;
+			restSpan = htkBeforeArmor;
+		}
+    /* Outputing spans with damage */
+    switch (multiplier.name) {
+      case "Head":
+      case "Neck":
+        return (
+          <span
+            key={multiplier.name}
+            className={classNames(
+              styles[multiplier.name],
+              styles["HitsToKill_" + htkWithHelmet]
+            )}
+          >
+            {helmetSpan}
+          </span>
+        );
+      case "Shoulder":
+      case "Chest":
+      case "Stomach":
+      case "LowerStomach":
+      case "Groin":
+        return (
+          <span
+            key={multiplier.name}
+            className={classNames(
+              styles[multiplier.name],
+              styles["HitsToKill_" + htkWithVest]
+            )}
+          >
+            {vestSpan}
+          </span>
+        );
+      default:
+        return (
+          <span
+            key={multiplier.name}
+            className={classNames(
+              styles[multiplier.name],
+              styles["HitsToKill_" + htkBeforeArmor]
+            )}
+          >
+            {restSpan}
+          </span>
+        );
     }
-  );
+  });
 
   return <div className={styles.Torso}>{dmgAreas}</div>;
 };
