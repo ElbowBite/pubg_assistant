@@ -746,6 +746,15 @@ const updateObject = (oldObj, newProps) => {
 
 const reducer = (state = initState, action) => {
   switch (action.type) {
+    case actionTypes.SET_CURRENT_PROPS: {
+      return ({
+        ...state,
+        current: {
+          ...state.current,
+          ...action.payload,
+        }
+      })
+    }
     case actionTypes.SET_WEAPON_TYPE:
       return updateObject(state, { WeaponType: action.newWeapType });
     case actionTypes.SET_WEAPON:
