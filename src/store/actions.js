@@ -1,5 +1,10 @@
 import * as actionTypes from "./actionTypes";
 
+export const setCurrentProps = payload => ({
+  type: actionTypes.SET_CURRENT_PROPS,
+  payload,
+})
+
 export const setWeapType = newWeapType => {
   return {
     type: actionTypes.SET_WEAPON_TYPE,
