@@ -18,7 +18,7 @@ const RightTools = props => {
     "Pistols",
     "Melee"
   ];
-  //Weapon types buttons generation
+	//Weapon types buttons generation
   const weapTypesSelector = weapTypes.map(weapType => {
     return (
       <button
@@ -27,11 +27,10 @@ const RightTools = props => {
           styles.WeapType,
           weapType === props.current.WeaponType && styles.WeapType_active
         )}
-        //  onClick={() => props.onWeapTypeSelect(weapType)}
         onClick={() =>
           WeaponType === weapType
             ? {}
-            : props.onSelectCurrent({ WeaponType: weapType })
+            : props.onSelectCurrent({ WeaponType: weapType, Weapon: props.weapons[weapType][0].name })
         }
       >
         {weapType}
@@ -54,7 +53,9 @@ const RightTools = props => {
             ? {}
             : props.onSelectCurrent({ Weapon: weapon.name })
         }
-      />
+      >
+				{weapon.name.replace(/_/g, ' ')}
+			</button>
     );
   });
 
@@ -78,9 +79,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onSelectCurrent: payload => dispatch(actions.setCurrentProps(payload)),
-    onWeapTypeSelect: newWeapType => dispatch(actions.setWeapType(newWeapType)),
-    onWeaponSelect: newWeapon => dispatch(actions.setWeapon(newWeapon))
+    onSelectCurrent: payload => dispatch(actions.setCurrentProps(payload))
   };
 };
 

@@ -5,197 +5,251 @@ const initState = {
     ARs: [
       {
         name: "AKM",
-        baseDmg: 47
+				baseDmg: 47,
+				fireRate: 0.1
       },
       {
         name: "AUG_A3",
-        baseDmg: 41
+        baseDmg: 41,
+				fireRate: 0.086
       },
       {
         name: "G36C",
-        baseDmg: 41
+        baseDmg: 41,
+				fireRate: 0.086
       },
       {
         name: "Groza",
-        baseDmg: 47
+        baseDmg: 47,
+				fireRate: 0.08
       },
       {
         name: "HK416",
-        baseDmg: 41
+        baseDmg: 41,
+				fireRate: 0.086
       },
       {
         name: "M16A4",
-        baseDmg: 43
+        baseDmg: 43,
+				fireRate: 0.1
       },
       {
         name: "M762_Beryl",
-        baseDmg: 46
+        baseDmg: 46,
+				fireRate: 0.086
       },
       {
         name: "Mk47_Mutant",
-        baseDmg: 49
+        baseDmg: 49,
+				fireRate: 0.1
       },
       {
         name: "QBZ95",
-        baseDmg: 41
+        baseDmg: 41,
+				fireRate: 0.092
       },
       {
-        name: "SCAR_L",
-        baseDmg: 41
+        name: "SCAR-L",
+        baseDmg: 41,
+				fireRate: 0.096
       }
     ],
     DMRs: [
       {
         name: "Mini14",
-        baseDmg: 46
+        baseDmg: 46,
+				fireRate: 0.1
       },
       {
         name: "Mk14",
-        baseDmg: 61
+        baseDmg: 61,
+				fireRate: 0.09
       },
       {
         name: "QBU",
-        baseDmg: 48
+        baseDmg: 48,
+				fireRate: 0.1
       },
       {
         name: "SKS",
-        baseDmg: 53
+        baseDmg: 53,
+				fireRate: 0.1
       },
       {
         name: "SLR",
-        baseDmg: 58
+        baseDmg: 58,
+				fireRate: 0.1
       },
       {
         name: "VSS",
-        baseDmg: 41
+        baseDmg: 41,
+				fireRate: 0.086
       }
     ],
     LMGs: [
       {
         name: "DP_28",
-        baseDmg: 51
+        baseDmg: 51,
+				fireRate: 0.109
       },
       {
         name: "M249",
-        baseDmg: 45
+        baseDmg: 45,
+				fireRate: 0.075
       }
     ],
     Melee: [
       {
         name: "Crowbar",
-        baseDmg: 60
+        baseDmg: 60,
+				fireRate: 0.75
       },
       {
         name: "Machete",
-        baseDmg: 60
+        baseDmg: 60,
+				fireRate: 0.75
       },
       {
         name: "Pan",
-        baseDmg: 80
+        baseDmg: 80,
+				fireRate: 0.75
       },
       {
         name: "Sickle",
-        baseDmg: 60
+        baseDmg: 60,
+				fireRate: 0.75
+      },
+      {
+        name: "Jump_punch",
+        baseDmg: 38,
+				fireRate: 1
+      },
+      {
+        name: "Punch",
+        baseDmg: 18,
+				fireRate: 0.33
       }
     ],
     Pistols: [
       {
         name: "Deagle",
-        baseDmg: 62
-      },
-      {
-        name: "Flare_gun",
-        baseDmg: 0
+        baseDmg: 62,
+				fireRate: 0.25
       },
       {
         name: "P18C",
-        baseDmg: 23
+        baseDmg: 23,
+				fireRate: 0.06
       },
       {
         name: "P92",
-        baseDmg: 35
+        baseDmg: 35,
+				fireRate: 0.135
       },
       {
         name: "P1911",
-        baseDmg: 41
+        baseDmg: 41,
+				fireRate: 0.11
       },
       {
         name: "R45",
-        baseDmg: 55
+        baseDmg: 55,
+				fireRate: 0.25
       },
       {
         name: "R1895",
-        baseDmg: 55
+        baseDmg: 55,
+				fireRate: 0.4
       },
       {
         name: "Skorpion",
-        baseDmg: 22
+        baseDmg: 22,
+				fireRate: 0.071
       }
     ],
     SGs: [
       {
-        name: "S12K",
-        baseDmg: 24
+				name: "S12K",
+				numberOfPellets: 9,
+        baseDmg: 24,
+				fireRate: 0.25
       },
       {
-        name: "S686",
-        baseDmg: 26
+				name: "S686",
+				numberOfPellets: 9,
+        baseDmg: 26,
+				fireRate: 0.2
       },
       {
-        name: "S1897",
-        baseDmg: 26
+				name: "S1897",
+				numberOfPellets: 9,
+        baseDmg: 26,
+				fireRate: 0.75
       },
       {
-        name: "Sawed_off",
-        baseDmg: 22
+				name: "Sawed_off",
+				numberOfPellets: 8,
+        baseDmg: 22,
+				fireRate: 0.25
       }
     ],
     SMGs: [
       {
         name: "MP5K",
-        baseDmg: 33
+        baseDmg: 33,
+				fireRate: 0.067
       },
       {
         name: "PP-19_Bizon",
-        baseDmg: 35
+        baseDmg: 35,
+				fireRate: 0.086
       },
       {
         name: "Thompson",
-        baseDmg: 40
+        baseDmg: 40,
+				fireRate: 0.086
       },
       {
         name: "UMP",
-        baseDmg: 39
+        baseDmg: 39,
+				fireRate: 0.092
       },
       {
         name: "UZI",
-        baseDmg: 26
+        baseDmg: 26,
+				fireRate: 0.048
       },
       {
         name: "Vector",
-        baseDmg: 31
+        baseDmg: 31,
+				fireRate: 0.054
       }
     ],
     SRs: [
       {
         name: "AWM",
-        baseDmg: 105
+        baseDmg: 105,
+				fireRate: 1.85
       },
       {
         name: "Kar98k",
-        baseDmg: 79
+        baseDmg: 79,
+				fireRate: 1.9
       },
       {
         name: "M24",
-        baseDmg: 75
+        baseDmg: 75,
+				fireRate: 1.8
       },
       {
         name: "Win94",
-        baseDmg: 79
+        baseDmg: 79,
+				fireRate: 0.6
       },
       {
         name: "Crossbow",
-        baseDmg: 105
+        baseDmg: 105,
+				fireRate: 3.55
       }
     ]
   },
@@ -755,14 +809,6 @@ const reducer = (state = initState, action) => {
         }
       })
     }
-    case actionTypes.SET_WEAPON_TYPE:
-      return updateObject(state, { WeaponType: action.newWeapType });
-    case actionTypes.SET_WEAPON:
-      return updateObject(state, { Weapon: action.newWeapon });
-    case actionTypes.SET_HELMET:
-      return updateObject(state, { Helmet: action.newHelmet });
-    case actionTypes.SET_VEST:
-      return updateObject(state, { Vest: action.newVest });
     case actionTypes.SET_VIEW:
       return updateObject(state, { View: action.newView });
     default:

@@ -15,6 +15,12 @@ span {
 	font-weight: 500;
 }
 
+.Pellets {
+	font-size: 9px;
+	position: relative;
+	display: inline;
+}
+
 .Head {
 	position: relative;
 	top: 10px;
@@ -130,6 +136,8 @@ span {
 .HitsToKill_12,
 .HitsToKill_13,
 .HitsToKill_14,
-.HitsToKill_15 {
+.HitsToKill_15,
+.HitsToKill_16,
+.HitsToKill_17 {
 	color: rgb(130, 52, 255);
 }

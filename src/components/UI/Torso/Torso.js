@@ -5,6 +5,9 @@ import classNames from "classnames";
 import styles from "./Torso.module.css";
 
 const Torso = props => {
+  let helmetSpan = null;
+  let vestSpan = null;
+  let restSpan = null;
   /* Defining base hit area damage multipliers */
   const baseAreaDmgMulitpliers = {
     Head: 1,
@@ -26,6 +29,16 @@ const Torso = props => {
     (pv, cv) => {
       if (cv.name === props.current.Weapon) {
         return cv.baseDmg;
+      }
+      return pv;
+    },
+    ""
+  );
+  /* Pulling fire rate of a currently selected weapon from state.weapons */
+  const curFireRate = props.weapons[props.current.WeaponType].reduce(
+    (pv, cv) => {
+      if (cv.name === props.current.Weapon) {
+        return cv.fireRate;
       }
       return pv;
     },
@@ -76,15 +89,87 @@ const Torso = props => {
     const htkBeforeArmor = Math.ceil(100 / dmgBeforeArmor).toString(10);
     const htkWithHelmet = Math.ceil(100 / dmgWithHelmet).toString(10);
     const htkWithVest = Math.ceil(100 / dmgWithVest).toString(10);
-		/* Defining what to show on torso */
-		let helmetSpan = dmgWithHelmet;
-    let vestSpan = dmgWithVest;
-		let restSpan = dmgBeforeArmor;
+    /* Defining what to show on torso */
+    if (props.current.WeaponType === "SGs") {
+      const curNumberOfPellets = props.weapons[props.current.WeaponType].reduce(
+        (pv, cv) => {
+          if (cv.name === props.current.Weapon) {
+            return cv.numberOfPellets;
+          }
+          return pv;
+        },
+        ""
+      );
+      if (props.current.View === "DMG") {
+        helmetSpan = (
+          <>
+            {dmgWithHelmet}
+            <span className={styles.Pellets}>x{curNumberOfPellets}</span>
+          </>
+        );
+        vestSpan = (
+          <>
+            {dmgWithVest}
+            <span className={styles.Pellets}>x{curNumberOfPellets}</span>
+          </>
+        );
+        restSpan = (
+          <>
+            {dmgBeforeArmor}
+            <span className={styles.Pellets}>x{curNumberOfPellets}</span>
+          </>
+        );
+      }
+    } else {
+      helmetSpan = dmgWithHelmet;
+      vestSpan = dmgWithVest;
+      restSpan = dmgBeforeArmor;
+    }
     if (props.current.View === "HTK") {
-      helmetSpan = htkWithHelmet;
-      vestSpan = htkWithVest;
-			restSpan = htkBeforeArmor;
-		}
+      if (props.current.WeaponType === "SGs") {
+        const curNumberOfPellets = props.weapons[
+          props.current.WeaponType
+        ].reduce((pv, cv) => {
+          if (cv.name === props.current.Weapon) {
+            return cv.numberOfPellets;
+          }
+          return pv;
+        }, "");
+        helmetSpan = (
+          <>
+            {htkWithHelmet}
+            <span className={styles.Pellets}>/{curNumberOfPellets}</span>
+          </>
+        );
+        vestSpan = (
+          <>
+            {htkWithVest}
+            <span className={styles.Pellets}>/{curNumberOfPellets}</span>
+          </>
+        );
+        restSpan = (
+          <>
+            {htkBeforeArmor}
+            <span className={styles.Pellets}>/{curNumberOfPellets}</span>
+          </>
+        );
+      } else {
+        helmetSpan = htkWithHelmet;
+        vestSpan = htkWithVest;
+        restSpan = htkBeforeArmor;
+      }
+    }
+    if (props.current.View === "TTK") {
+      if (props.current.WeaponType === "SGs") {
+        helmetSpan = (Math.floor(htkWithHelmet / 9) * curFireRate).toFixed(2);
+        vestSpan = (Math.floor(htkWithVest / 9) * curFireRate).toFixed(2);
+        restSpan = (Math.floor(htkBeforeArmor / 9) * curFireRate).toFixed(2);
+      } else {
+        helmetSpan = ((htkWithHelmet - 1) * curFireRate).toFixed(2);
+        vestSpan = ((htkWithVest - 1) * curFireRate).toFixed(2);
+        restSpan = ((htkBeforeArmor - 1) * curFireRate).toFixed(2);
+      }
+    }
     /* Outputing spans with damage */
     switch (multiplier.name) {
       case "Head":

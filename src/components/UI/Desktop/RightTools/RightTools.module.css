@@ -4,6 +4,12 @@
 	align-content: center;
 }
 
+.Pellets {
+	color: #ffaa00;
+	font-size: 13px;
+	text-align: center;
+}
+
 .WeapType {
 	width: 48px;
 	font-size: 12px;
@@ -21,13 +27,14 @@
 .Weapons {
 	width: 96px;
 	height: 40px;
-	border: none;
 	background-size: 96px;
 	position: relative;
 	z-index: 1;
+	color: transparent;
 }
 
 .Weapons:hover {
+	color: #ffaa00;
 	z-index: 2;
 	-webkit-transform: scale(1.4) rotate(10deg);
   transform: scale(1.4) rotate(10deg);
@@ -107,12 +114,12 @@
 	background-image: url('../../../../assets/images/main/weapons/selected/ARs/QBZ95.png');
 }
 
-.SCAR_L {
-	background-image: url('../../../../assets/images/main/weapons/ARs/SCAR_L.png');
+.SCAR-L {
+	background-image: url('../../../../assets/images/main/weapons/ARs/SCAR-L.png');
 }
-.SCAR_L:hover,
-.SCAR_L_active {
-	background-image: url('../../../../assets/images/main/weapons/selected/ARs/SCAR_L.png');
+.SCAR-L:hover,
+.SCAR-L_active {
+	background-image: url('../../../../assets/images/main/weapons/selected/ARs/SCAR-L.png');
 }
 
 /* DMRs */
@@ -225,14 +232,6 @@
 .Deagle:hover,
 .Deagle_active {
 	background-image: url('../../../../assets/images/main/weapons/selected/Pistols/Deagle.png');
-}
-
-.Flare_gun {
-	background-image: url('../../../../assets/images/main/weapons/Pistols/Flare_gun.png');
-}
-.Flare_gun:hover,
-.Flare_gun_active {
-	background-image: url('../../../../assets/images/main/weapons/selected/Pistols/Flare_gun.png');
 }
 
 .P1911 {

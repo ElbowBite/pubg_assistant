@@ -6,16 +6,20 @@ import styles from "./LeftTools.module.css";
 import * as actions from "../../../../store/actions";
 
 const LeftTools = props => {
-  const { current: { Helmet, Vest } } = props;
+  const {
+    current: { Helmet, Vest, View }
+	} = props;
   const viewTypes = ["DMG", "HTK", "TTK"];
   const viewTypeSelector = viewTypes.map(view => {
     return (
       <button
+				key={view}
         className={classNames(
           styles.ViewType,
           view === props.current.View && styles.ViewType_active
-				)}
-				onClick={() => props.onSelectView(view)}
+        )}
+				onClick={() => 
+					View === view ? {} : props.onSelectCurrent({ View: view })}
       >
         {view}
       </button>
@@ -30,11 +34,8 @@ const LeftTools = props => {
         styles[helm.name + "h"],
         helm.name === props.current.Helmet && styles[helm.name + "h_active"]
       )}
-      //  onClick={() => props.onSelectHelmet(helm.name)}
       onClick={() =>
-        Helmet === helm.name
-          ? {}
-          : props.onSelectCurrent({ Helmet: helm.name })
+        Helmet === helm.name ? {} : props.onSelectCurrent({ Helmet: helm.name })
       }
     />
   ));
@@ -47,11 +48,8 @@ const LeftTools = props => {
         styles[vest.name + "v"],
         vest.name === props.current.Vest && styles[vest.name + "v_active"]
       )}
-      //  onClick={() => props.onSelectVest(vest.name)}
       onClick={() =>
-        Vest === vest.name
-          ? {}
-          : props.onSelectCurrent({ Vest: vest.name })
+        Vest === vest.name ? {} : props.onSelectCurrent({ Vest: vest.name })
       }
     />
   ));
@@ -78,9 +76,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     onSelectCurrent: payload => dispatch(actions.setCurrentProps(payload)),
-    //  onSelectHelmet: newHelmet => dispatch(actions.setHelmet(newHelmet)),
-		//  onSelectVest: newVest => dispatch(actions.setVest(newVest)),
-		onSelectView: newView => dispatch(actions.setView(newView))
+    onSelectView: newView => dispatch(actions.setView(newView))
   };
 };
 
