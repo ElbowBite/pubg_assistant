@@ -1,7 +1,6 @@
 .WeaponSelection {
-	z-index: 4;
 	width: 40%;
-	background-color: darkkhaki;
+	background-color: #ffaa00;
 	position: fixed;
 	display: inline-block;
 	left: 0;

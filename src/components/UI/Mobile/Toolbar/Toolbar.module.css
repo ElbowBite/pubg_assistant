@@ -8,15 +8,17 @@
 	justify-content: space-between;
 	align-items: center;
 	z-index: 5;
+	margin: 0;
 }
 
 .Toolbar button {
 	width: 33%;
 	height: 100%;
-	background-color: #fad625;
+	background-color: #ffaa00;
 	color: black;
 	border: 10px;
 	border-radius: 5px;
+	font-size: 25px;
 }
 
 @media (min-width: 500px) {

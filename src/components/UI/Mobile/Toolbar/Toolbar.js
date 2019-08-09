@@ -1,31 +1,32 @@
-import React, { Component } from "react";
+import React from "react";
+import { connect } from "react-redux";
 
 import styles from "./Toolbar.module.css";
-import WeaponSelection from "./WeaponSelection/WeaponSelection";
+import * as actions from "../../../../store/actions";
 
-class Toolbar extends Component {
-  state = {
-    openWeaps: false
+const Toolbar = props => {
+  return (
+    <div className={styles.Toolbar}>
+      <button onClick={() => props.onWeaponClicked()}>Weapon</button>
+      <button>Armor</button>
+      <button>Settings</button>
+    </div>
+  );
+};
+
+const mapStateToProps = state => {
+  return {
+    showRightTools: state.mobile.showRightTools
   };
+};
 
-  weapsClicked = () => {
-    this.setState(prevState => {
-      return { openWeaps: !prevState.openWeaps };
-    });
+const mapDispatchToProps = dispatch => {
+  return {
+    onWeaponClicked: () => dispatch(actions.setRightToolsState())
   };
+};
 
-  render() {
-    return (
-      <>
-        <WeaponSelection openWeaps={this.state.openWeaps} />
-        <div className={styles.Toolbar}>
-          <button onClick={this.weapsClicked}>Weapon</button>
-          <button>Armor</button>
-          <button>Settings</button>
-        </div>
-      </>
-    );
-  }
-}
-
-export default Toolbar;
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Toolbar);

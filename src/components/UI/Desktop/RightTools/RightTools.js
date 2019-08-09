@@ -6,7 +6,9 @@ import styles from "./RightTools.module.css";
 import * as actions from "../../../../store/actions";
 
 const RightTools = props => {
-  const { current: { WeaponType, Weapon } } = props;
+  const {
+    current: { WeaponType, Weapon }
+  } = props;
   //Array of weapon types. TO replace with state.weapons[***] from reducer !!!
   const weapTypes = [
     "ARs",
@@ -18,19 +20,23 @@ const RightTools = props => {
     "Pistols",
     "Melee"
   ];
-	//Weapon types buttons generation
+  //Weapon types buttons generation
   const weapTypesSelector = weapTypes.map(weapType => {
     return (
       <button
         key={weapType}
         className={classNames(
           styles.WeapType,
-          weapType === props.current.WeaponType && styles.WeapType_active
+          weapType === props.current.WeaponType && styles.WeapType_active,
+          styles.Hidden
         )}
         onClick={() =>
           WeaponType === weapType
             ? {}
-            : props.onSelectCurrent({ WeaponType: weapType, Weapon: props.weapons[weapType][0].name })
+            : props.onSelectCurrent({
+                WeaponType: weapType,
+                Weapon: props.weapons[weapType][0].name
+              })
         }
       >
         {weapType}
@@ -54,18 +60,27 @@ const RightTools = props => {
             : props.onSelectCurrent({ Weapon: weapon.name })
         }
       >
-				{weapon.name.replace(/_/g, ' ')}
-			</button>
+        {weapon.name.replace(/_/g, " ")}
+      </button>
     );
   });
 
   return (
-    <div className={styles.RightTools}>
-      <div>
-        <p style={{ textAlign: "center", fontSize: "20px" }}>Select weapon</p>
+    <div
+      className={classNames(
+        styles.RightTools,
+        props.mobile.showRightTools ? styles.Open : styles.Close
+      )}
+    >
+      <div className={styles.WeaponSelectionLabel}>
+        <p>Select weapon</p>
         {weapTypesSelector}
       </div>
       <div>{curWeapList}</div>
+			{/* Fill with all images from CSS */}
+			<div className={styles.Preloader}>
+				<img src="'../../../../assets/images/main/weapons/selected/ARs/AKM.png'" alt="AKM" />
+			</div>
     </div>
   );
 };
@@ -73,7 +88,8 @@ const RightTools = props => {
 const mapStateToProps = state => {
   return {
     weapons: state.weapons,
-    current: state.current
+    current: state.current,
+    mobile: state.mobile
   };
 };
 

@@ -1,6 +1,6 @@
 .LeftTools {
-	display: inline-block;
-	min-width: 280px;
+  display: inline-block;
+  min-width: 280px;
 }
 
 .Helmet,
@@ -11,25 +11,34 @@
   background-size: 70px;
 }
 
-.Helmet:hover,
-.Vest:hover,
-.ViewType:hover {
-	-webkit-transform: scale(1.4) rotate(10deg);
-  transform: scale(1.4) rotate(10deg);
-}
-
 button {
   outline: none;
 }
 
 .ViewType {
-	width: 93px;
-	height: 40px;
-	font-size: 20px;
-	font-weight: 600;
+  width: 93px;
+  height: 40px;
+  font-size: 20px;
+  font-weight: 600;
 }
 .ViewType_active {
-	text-shadow: 0 0 10px #ffaa00ba;
+  text-shadow: 0 0 10px #ffaa00ba;
+}
+
+/* Desktop-exclusive hover styles */
+@media screen and (min-width: 500px) {
+  .Helmet:hover,
+  .Vest:hover,
+  .ViewType:hover {
+    -webkit-transform: scale(1.4) rotate(10deg);
+    transform: scale(1.4) rotate(10deg);
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .LeftTools {
+    display: none;
+  }
 }
 
 .lvl0h {

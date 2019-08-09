@@ -2,6 +2,7 @@
 	max-width: 384px;
 	min-height: 205px;
 	align-content: center;
+	z-index: 5;
 }
 
 .Pellets {
@@ -15,11 +16,6 @@
 	font-size: 12px;
 	z-index: 1;
 }
-.WeapType:hover {
-	z-index: 2;
-	-webkit-transform: scale(1.4) rotate(5deg);
-  transform: scale(1.4) rotate(5deg);
-}
 .WeapType_active {
 	text-shadow: 0 0 10px #ffaa00ba;
 }
@@ -27,17 +23,67 @@
 .Weapons {
 	width: 96px;
 	height: 40px;
-	background-size: 96px;
-	position: relative;
+	background-size: 100%;
 	z-index: 1;
 	color: transparent;
 }
 
-.Weapons:hover {
-	color: #ffaa00;
-	z-index: 2;
-	-webkit-transform: scale(1.4) rotate(10deg);
-  transform: scale(1.4) rotate(10deg);
+.WeaponSelectionLabel {
+	text-align: "center";
+	font-size: "20px";
+}
+/* Desktop-exclusive hover styles */
+@media screen and (min-width: 500px) {
+	.Weapons:hover {
+		color: #ffaa00;
+		z-index: 2;
+		-webkit-transform: scale(1.4) rotate(10deg);
+		transform: scale(1.4) rotate(10deg);
+	}
+	.WeapType:hover {
+		z-index: 2;
+		-webkit-transform: scale(1.4) rotate(5deg);
+		transform: scale(1.4) rotate(5deg);
+	}
+}
+
+@media screen and (max-width: 500px) {
+	.RightTools {
+		width: 144px;
+		background-color: #ffaa00;
+		position: fixed;
+		display: inline-block;
+		left: 0;
+		bottom: 52px;
+		box-sizing: border-box;
+		transition: transform 0.3s ease-out;
+		max-height: 800px;
+	}
+	
+	.RightTools button {
+		width: 100%;
+		height: 60px;
+	}
+
+	.WeaponSelectionLabel {
+		display: none;
+	}
+
+	.Hidden {
+		display: none;
+	}
+	
+	.Open {
+		transform: translateY(0);
+	}
+	
+	.Close {
+		transform: translateY(110%);
+	}
+}
+
+.Preloader {
+	display: none;
 }
 
 /* ARs */
