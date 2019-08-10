@@ -9,7 +9,6 @@ const RightTools = props => {
   const {
     current: { WeaponType, Weapon }
   } = props;
-  //Array of weapon types. TO replace with state.weapons[***] from reducer !!!
   const weapTypes = [
     "ARs",
     "SRs",
@@ -20,7 +19,7 @@ const RightTools = props => {
     "Pistols",
     "Melee"
   ];
-  //Weapon types buttons generation
+  /* Weapon types buttons generation */
   const weapTypesSelector = weapTypes.map(weapType => {
     return (
       <button
@@ -28,7 +27,7 @@ const RightTools = props => {
         className={classNames(
           styles.WeapType,
           weapType === props.current.WeaponType && styles.WeapType_active,
-          styles.Hidden
+          props.mobile.rigthToolsContent !== "WeaponTypes" && styles.Hidden
         )}
         onClick={() =>
           WeaponType === weapType
@@ -52,7 +51,7 @@ const RightTools = props => {
           styles.Weapons,
           styles[weapon.name],
           weapon.name === props.current.Weapon &&
-            styles[weapon.name + "_active"]
+						styles[weapon.name + "_active"]
         )}
         onClick={() =>
           Weapon === weapon.name
@@ -72,15 +71,11 @@ const RightTools = props => {
         props.mobile.showRightTools ? styles.Open : styles.Close
       )}
     >
-      <div className={styles.WeaponSelectionLabel}>
-        <p>Select weapon</p>
+      <div>
+        <p className={styles.WeaponSelectionLabel}>Select weapon</p>
         {weapTypesSelector}
       </div>
-      <div>{curWeapList}</div>
-			{/* Fill with all images from CSS */}
-			<div className={styles.Preloader}>
-				<img src="'../../../../assets/images/main/weapons/selected/ARs/AKM.png'" alt="AKM" />
-			</div>
+      <div className={props.mobile.rigthToolsContent === "WeaponTypes" && styles.Hidden}>{curWeapList}</div>
     </div>
   );
 };

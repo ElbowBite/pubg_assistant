@@ -6,7 +6,7 @@
   background-image: url('../../../assets/images/torso.png');
   background-repeat: no-repeat;
   color: #f2aa00;
-	font-size: 15px;
+	font-size: 17px;
 	display: inline-block;
 	position: relative;
 }
@@ -65,7 +65,7 @@ span {
 	position: absolute;
 	top: 205px;
 	left: 182px;
-	font-size: 13px;
+	font-size: 15px;
 }
 
 .Stomach {
@@ -82,7 +82,7 @@ span {
 	position: absolute;
 	top: 258px;
 	left: 198px;
-	font-size: 12px;
+	font-size: 14px;
 }
 
 .Groin {
@@ -100,14 +100,14 @@ span {
 	position: absolute;
 	top: 400px;
 	left: 141px;
-	font-size: 14px;
+	font-size: 16px;
 }
 
 .Foot {
 	position: absolute;
-	top: 495px;
+	top: 493px;
 	left: 132px;
-	font-size: 12px;
+	font-size: 14px;
 }
 
 .HitsToKill_1 {

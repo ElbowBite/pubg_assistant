@@ -788,7 +788,8 @@ const initState = {
   },
   mobile: {
     showBackdrop: false,
-    showRightTools: false
+		showRightTools: false,
+		rigthToolsContent: "WeaponTypes"
   }
 };
 
@@ -802,7 +803,7 @@ const updateCurrentState = (oldObj, newProps) => {
 		mobile: {
 			...oldObj.mobile,
 			showBackdrop: false,
-			showRightTools: false
+			showRightTools: false,
 		}
   };
 };
