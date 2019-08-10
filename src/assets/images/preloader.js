@@ -3,8 +3,7 @@ import React from "react";
 const Preloader = () => {
   return (
     <div style={{ display: "none" }}>
-
-				{/* < Main Page. Instantly loaded with page >
+				{/* < Main Page. To be loaded before other content > */}
 					<img alt="AKM" src={require("./main/weapons/ARs/AKM.png")} />
 					<img alt="AUG_A3" src={require("./main/weapons/ARs/AUG_A3.png")} />
 					<img alt="G36C" src={require("./main/weapons/ARs/G36C.png")} />
@@ -25,7 +24,7 @@ const Preloader = () => {
 					<img alt="lvl1v" src={require("./main/gear/vests/lvl1v.png")} />
 					<img alt="lvl2v" src={require("./main/gear/vests/lvl2v.png")} />
 					<img alt="lvl3v" src={require("./main/gear/vests/lvl3v.png")} />
-				</ Main Page > */}
+				{/* </ Main Page > */}
 
 				{/* Requier preloading */}
 				
