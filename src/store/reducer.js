@@ -826,6 +826,10 @@ const reducer = (state = initState, action) => {
       if (state.mobile.rigthToolsContent === "Weapons") {
         return {
 					...state,
+					current: {
+						...state.current,
+						...action.payload
+					},
           mobile: {
 						...state.mobile,
             showBackdrop: false,
@@ -841,7 +845,7 @@ const reducer = (state = initState, action) => {
               ...state.current,
               ...action.payload,
               Weapon: state.weapons[action.payload.WeaponType][0].name
-            }
+						}
           };
         } else {
           return {
