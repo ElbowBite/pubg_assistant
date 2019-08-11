@@ -4,25 +4,31 @@
 	position: fixed;
 	bottom: 0;
 	left: 0;
-	display: flex;
-	justify-content: space-between;
 	align-items: center;
 	z-index: 5;
 	margin: 0;
+	display: flex;
+	align-content: center;
+	background-color: #000000c7;
 }
 
 .Toolbar button {
-	width: 33%;
+	width: 33.3%;
 	height: 100%;
 	background-color: #ffaa00;
 	color: black;
-	border: 10px;
-	border-radius: 5px;
 	font-size: 25px;
+	border-radius: 15px 15px 0 0;
 }
 
 @media (min-width: 500px) {
 	.Toolbar {
 		display: none;
+	}
+}
+
+@media (max-width: 300px) {
+	.Toolbar button {
+		font-size: 20px;
 	}
 }

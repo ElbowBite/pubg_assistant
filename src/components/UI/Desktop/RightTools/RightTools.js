@@ -26,16 +26,12 @@ const RightTools = props => {
         key={weapType}
         className={classNames(
           styles.WeapType,
-          weapType === props.current.WeaponType && styles.WeapType_active,
-          props.mobile.rigthToolsContent !== "WeaponTypes" && styles.Hidden
+          weapType === props.current.WeaponType && styles.WeapType_active
         )}
         onClick={() =>
           WeaponType === weapType
             ? {}
-            : props.onSelectCurrent({
-                WeaponType: weapType,
-                Weapon: props.weapons[weapType][0].name
-              })
+            : props.onSelectCurrent({ WeaponType: weapType })
         }
       >
         {weapType}
@@ -51,7 +47,7 @@ const RightTools = props => {
           styles.Weapons,
           styles[weapon.name],
           weapon.name === props.current.Weapon &&
-						styles[weapon.name + "_active"]
+            styles[weapon.name + "_active"]
         )}
         onClick={() =>
           Weapon === weapon.name
@@ -71,11 +67,24 @@ const RightTools = props => {
         props.mobile.showRightTools ? styles.Open : styles.Close
       )}
     >
-      <div>
+      <div
+        onClick={() => props.onWeaponTypeSelected()}
+        className={
+          props.mobile.rigthToolsContent === "Weapons" ? styles.Hidden : null
+        }
+      >
         <p className={styles.WeaponSelectionLabel}>Select weapon</p>
         {weapTypesSelector}
       </div>
-      <div className={props.mobile.rigthToolsContent === "WeaponTypes" && styles.Hidden}>{curWeapList}</div>
+      <div
+        className={
+          props.mobile.rigthToolsContent === "WeaponTypes"
+            ? styles.Hidden
+            : null
+        }
+      >
+        {curWeapList}
+      </div>
     </div>
   );
 };
@@ -90,7 +99,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onSelectCurrent: payload => dispatch(actions.setCurrentProps(payload))
+    onSelectCurrent: payload => dispatch(actions.setCurrentProps(payload)),
+    onWeaponTypeSelected: () => dispatch(actions.setRightToolsContent())
   };
 };
 

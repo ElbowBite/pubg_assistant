@@ -788,8 +788,9 @@ const initState = {
   },
   mobile: {
     showBackdrop: false,
-		showRightTools: false,
-		rigthToolsContent: "WeaponTypes"
+    showRightTools: false,
+    rigthToolsContent: "WeaponTypes",
+    showLeftTools: false
   }
 };
 
@@ -799,12 +800,13 @@ const updateCurrentState = (oldObj, newProps) => {
     current: {
       ...oldObj.current,
       ...newProps
-		},
-		mobile: {
-			...oldObj.mobile,
-			showBackdrop: false,
-			showRightTools: false,
-		}
+    },
+    mobile: {
+      ...oldObj.mobile,
+      showBackdrop: false,
+      showRightTools: false,
+      showLeftTools: false
+    }
   };
 };
 
@@ -812,7 +814,7 @@ const updateMobileState = (oldObj, newProps) => {
   return {
     ...oldObj,
     mobile: {
-      ...oldObj.current,
+      ...oldObj.mobile,
       ...newProps
     }
   };
@@ -821,30 +823,56 @@ const updateMobileState = (oldObj, newProps) => {
 const reducer = (state = initState, action) => {
   switch (action.type) {
     case actionTypes.SET_CURRENT_PROPS:
-			return {
-				...state,
-				current: {
-					...state.current,
-					...action.payload
-				},
-				mobile: {
-					...state.mobile,
-					showBackdrop: false,
-					showRightTools: false
-				}
-			}
+      if (state.mobile.rigthToolsContent === "Weapons") {
+        return {
+					...state,
+          mobile: {
+						...state.mobile,
+            showBackdrop: false,
+						showRightTools: false,
+						rigthToolsContent: "WeaponTypes"
+          }
+        };
+      } else {
+        if (action.payload.WeaponType) {
+          return {
+            ...state,
+            current: {
+              ...state.current,
+              ...action.payload,
+              Weapon: state.weapons[action.payload.WeaponType][0].name
+            }
+          };
+        } else {
+          return {
+            ...state,
+            current: {
+              ...state.current,
+              ...action.payload
+            }
+          };
+        }
+      }
     case actionTypes.SET_VIEW:
       return updateCurrentState(state, { View: action.newView });
     case actionTypes.SET_BACKDROP_STATE:
       return updateMobileState(state, {
-        showBackdrop: !state.mobile.showBackdrop,
-        showRightTools: !state.mobile.showRightTools
+        showBackdrop: false,
+        showRightTools: false,
+        showLeftTools: false
       });
     case actionTypes.SET_RIGHT_TOOLS_STATE:
       return updateMobileState(state, {
         showBackdrop: !state.mobile.showBackdrop,
         showRightTools: !state.mobile.showRightTools
       });
+    case actionTypes.SET_LEFT_TOOLS_STATE:
+      return updateMobileState(state, {
+        showBackdrop: !state.mobile.showBackdrop,
+        showLeftTools: !state.mobile.showLeftTools
+      });
+    case actionTypes.SET_RIGHT_TOOLS_CONTENT:
+      return updateMobileState(state, { rigthToolsContent: "Weapons" });
     default:
       return state;
   }

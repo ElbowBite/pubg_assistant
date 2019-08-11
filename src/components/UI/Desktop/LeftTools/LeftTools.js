@@ -8,18 +8,19 @@ import * as actions from "../../../../store/actions";
 const LeftTools = props => {
   const {
     current: { Helmet, Vest, View }
-	} = props;
+  } = props;
   const viewTypes = ["DMG", "HTK", "TTK"];
   const viewTypeSelector = viewTypes.map(view => {
     return (
       <button
-				key={view}
+        key={view}
         className={classNames(
           styles.ViewType,
           view === props.current.View && styles.ViewType_active
         )}
-				onClick={() => 
-					View === view ? {} : props.onSelectCurrent({ View: view })}
+        onClick={() =>
+          View === view ? {} : props.onSelectCurrent({ View: view })
+        }
       >
         {view}
       </button>
@@ -55,8 +56,13 @@ const LeftTools = props => {
   ));
 
   return (
-    <div className={styles.LeftTools}>
-      <p style={{ textAlign: "center", fontSize: "20px" }}>
+    <div
+      className={classNames(
+        styles.LeftTools,
+        props.mobile.showLeftTools ? styles.Open : styles.Close
+      )}
+    >
+      <p className={styles.ArmorSelectionLabel}>
         Select helmet and vest levels
       </p>
       <div name="helmetSelector">{helmetList}</div>
@@ -69,14 +75,15 @@ const LeftTools = props => {
 const mapStateToProps = state => {
   return {
     gear: state.gear,
-    current: state.current
+    current: state.current,
+    mobile: state.mobile
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
     onSelectCurrent: payload => dispatch(actions.setCurrentProps(payload)),
-    onSelectView: newView => dispatch(actions.setView(newView))
+		onSelectView: newView => dispatch(actions.setView(newView))
   };
 };
 

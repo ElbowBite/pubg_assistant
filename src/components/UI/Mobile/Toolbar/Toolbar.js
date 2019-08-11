@@ -8,7 +8,7 @@ const Toolbar = props => {
   return (
     <div className={styles.Toolbar}>
       <button onClick={() => props.onWeaponClicked()}>Weapon</button>
-      <button>Armor</button>
+      <button onClick={() => props.onArmorClicked()}>Armor</button>
       <button>Settings</button>
     </div>
   );
@@ -22,7 +22,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onWeaponClicked: () => dispatch(actions.setRightToolsState())
+    onWeaponClicked: () => dispatch(actions.setRightToolsState()),
+    onArmorClicked: () => dispatch(actions.setLeftToolsState())
   };
 };
 

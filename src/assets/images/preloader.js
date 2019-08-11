@@ -4,6 +4,7 @@ const Preloader = () => {
   return (
     <div style={{ display: "none" }}>
 				{/* < Main Page. To be loaded before other content > */}
+					<img alt="Torso" src={require("./torso.png")} />
 					<img alt="AKM" src={require("./main/weapons/ARs/AKM.png")} />
 					<img alt="AUG_A3" src={require("./main/weapons/ARs/AUG_A3.png")} />
 					<img alt="G36C" src={require("./main/weapons/ARs/G36C.png")} />
