@@ -31,7 +31,7 @@ button {
 	font-size: 20px;
 }
 /* Desktop-exclusive hover styles */
-@media screen and (min-width: 500px) {
+@media screen and (min-width: 560px) {
   .Helmet:hover,
   .Vest:hover,
   .ViewType:hover {
@@ -40,7 +40,7 @@ button {
   }
 }
 /* Mobile (small-screen) styles */
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 600px) {
 	.LeftTools {
 		min-width: 210px;
 		background-color: #000000c7;

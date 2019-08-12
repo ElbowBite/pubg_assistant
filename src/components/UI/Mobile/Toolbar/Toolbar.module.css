@@ -21,7 +21,7 @@
 	border-radius: 15px 15px 0 0;
 }
 
-@media (min-width: 500px) {
+@media (min-width: 600px) {
 	.Toolbar {
 		display: none;
 	}
@@ -30,11 +30,5 @@
 @media (max-width: 300px) {
 	.Toolbar button {
 		font-size: 20px;
-	}
-}
-
-@media (max-height: 565px) {
-	.Toolbar {
-		height: 40px;
 	}
 }

@@ -33,7 +33,7 @@
 	font-size: 20px;
 }
 /* Desktop-exclusive hover styles */
-@media screen and (min-width: 500px) {
+@media screen and (min-width: 600px) {
 	.Weapons:hover {
 		color: #ffaa00;
 		z-index: 2;
@@ -47,7 +47,7 @@
 	}
 }
 /* Mobile (small-screen) styles */
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 600px) {
 	.WeaponList,
 	.WeaponTypeSelector {
 		position: fixed;
@@ -98,6 +98,8 @@
 		transform: translateY(110%);
 	}
 }
+
+/* For very small screens */
 
 @media (max-width: 300px), (max-height: 655px) {
 	.WeaponList {

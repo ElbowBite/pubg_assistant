@@ -178,7 +178,8 @@ const Torso = props => {
           <p
             key={multiplier.name}
             className={classNames(
-              styles[multiplier.name],
+							styles[multiplier.name],
+							styles.Numbers,
               styles["HitsToKill_" + htkWithHelmet]
             )}
           >
@@ -194,7 +195,8 @@ const Torso = props => {
           <p
             key={multiplier.name}
             className={classNames(
-              styles[multiplier.name],
+							styles[multiplier.name],
+							styles.Numbers,
               styles["HitsToKill_" + htkWithVest]
             )}
           >
@@ -206,7 +208,8 @@ const Torso = props => {
           <p
             key={multiplier.name}
             className={classNames(
-              styles[multiplier.name],
+							styles[multiplier.name],
+							styles.Numbers,
               styles["HitsToKill_" + htkBeforeArmor]
             )}
           >
