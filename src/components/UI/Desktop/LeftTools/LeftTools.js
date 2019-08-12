@@ -83,7 +83,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     onSelectCurrent: payload => dispatch(actions.setCurrentProps(payload)),
-		onSelectView: newView => dispatch(actions.setView(newView))
+    onSelectView: newView => dispatch(actions.setView(newView))
   };
 };
 

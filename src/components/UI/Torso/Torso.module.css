@@ -28,7 +28,10 @@ span {
 
 .Pellets {
 	font-size: 9px;
-	display: inline;
+	position: absolute;
+	width: 50px;
+	left: 40px;
+	bottom: 0;
 }
 
 .Head {

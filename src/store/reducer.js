@@ -823,39 +823,38 @@ const updateMobileState = (oldObj, newProps) => {
 const reducer = (state = initState, action) => {
   switch (action.type) {
     case actionTypes.SET_CURRENT_PROPS:
-      if (state.mobile.rigthToolsContent === "Weapons") {
+      if (action.payload.WeaponType) {
         return {
-					...state,
-					current: {
-						...state.current,
-						...action.payload
-					},
-          mobile: {
-						...state.mobile,
-            showBackdrop: false,
-						showRightTools: false,
-						rigthToolsContent: "WeaponTypes"
+          ...state,
+          current: {
+            ...state.current,
+            ...action.payload,
+            Weapon: state.weapons[action.payload.WeaponType][0].name
           }
         };
       } else {
-        if (action.payload.WeaponType) {
-          return {
-            ...state,
-            current: {
-              ...state.current,
-              ...action.payload,
-              Weapon: state.weapons[action.payload.WeaponType][0].name
+				if (action.payload.Weapon) {
+					return {
+						...state,
+						current: {
+							...state.current,
+							...action.payload
+						},
+						mobile: {
+							...state.mobile,
+							showRightTools: false,
+							showBackdrop: false
 						}
-          };
-        } else {
-          return {
-            ...state,
-            current: {
-              ...state.current,
-              ...action.payload
-            }
-          };
-        }
+					};
+				} else {
+					return {
+						...state,
+						current: {
+							...state.current,
+							...action.payload
+						}
+					};
+				}
       }
     case actionTypes.SET_VIEW:
       return updateCurrentState(state, { View: action.newView });
@@ -868,10 +867,12 @@ const reducer = (state = initState, action) => {
     case actionTypes.SET_RIGHT_TOOLS_STATE:
       return updateMobileState(state, {
         showBackdrop: !state.mobile.showBackdrop,
-        showRightTools: !state.mobile.showRightTools
+        showRightTools: !state.mobile.showRightTools,
+        showLeftTools: false
       });
     case actionTypes.SET_LEFT_TOOLS_STATE:
       return updateMobileState(state, {
+        showRightTools: false,
         showBackdrop: !state.mobile.showBackdrop,
         showLeftTools: !state.mobile.showLeftTools
       });
