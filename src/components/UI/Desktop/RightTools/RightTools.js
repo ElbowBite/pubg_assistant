@@ -61,13 +61,27 @@ const RightTools = props => {
   });
 
   return (
-  	<div className={styles.RightTools}>
+    <div className={styles.RightTools}>
       <div onClick={() => props.onWeaponTypeSelected()}>
         <p className={styles.WeaponSelectionLabel}>Select weapon</p>
-        <div className={classNames(styles.WeaponTypeSelector, props.mobile.showRightTools ? styles.Open : styles.Close)}>{weapTypesSelector}</div>
+        <div
+          className={classNames(
+            styles.WeaponTypeSelector,
+            props.mobile.showRightTools ? styles.Open : styles.Close
+          )}
+        >
+          {weapTypesSelector}
+        </div>
       </div>
-      <div className={classNames(styles.WeaponList, props.mobile.showRightTools ? styles.Open : styles.Close)}>{curWeapList}</div>
-  	</div>
+      <div
+        className={classNames(
+          styles.WeaponList,
+          props.mobile.showRightTools ? styles.Open : styles.Close
+        )}
+      >
+        {curWeapList}
+      </div>
+    </div>
   );
 };
 

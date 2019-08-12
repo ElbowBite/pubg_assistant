@@ -18,9 +18,10 @@
 	}
 }
 
-span {
+p {
 	font-weight: 500;
 	position: absolute;
+	margin: 0;
 	text-align: center;
 	width: 50px;
 	left: 50%;

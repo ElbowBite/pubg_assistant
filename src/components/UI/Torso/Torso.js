@@ -161,13 +161,13 @@ const Torso = props => {
     }
     if (props.current.View === "TTK") {
       if (props.current.WeaponType === "SGs") {
-        helmetSpan = (Math.floor(htkWithHelmet / 9) * curFireRate).toFixed(2);
-        vestSpan = (Math.floor(htkWithVest / 9) * curFireRate).toFixed(2);
-        restSpan = (Math.floor(htkBeforeArmor / 9) * curFireRate).toFixed(2);
+        helmetSpan = (Math.floor(htkWithHelmet / 9) * curFireRate).toFixed(2) + "s";
+        vestSpan = (Math.floor(htkWithVest / 9) * curFireRate).toFixed(2) + "s";
+        restSpan = (Math.floor(htkBeforeArmor / 9) * curFireRate).toFixed(2) + "s";
       } else {
-        helmetSpan = ((htkWithHelmet - 1) * curFireRate).toFixed(2);
-        vestSpan = ((htkWithVest - 1) * curFireRate).toFixed(2);
-        restSpan = ((htkBeforeArmor - 1) * curFireRate).toFixed(2);
+        helmetSpan = ((htkWithHelmet - 1) * curFireRate).toFixed(2) + "s";
+        vestSpan = ((htkWithVest - 1) * curFireRate).toFixed(2) + "s";
+        restSpan = ((htkBeforeArmor - 1) * curFireRate).toFixed(2) + "s";
       }
     }
     /* Outputing spans with damage */
@@ -175,7 +175,7 @@ const Torso = props => {
       case "Head":
       case "Neck":
         return (
-          <span
+          <p
             key={multiplier.name}
             className={classNames(
               styles[multiplier.name],
@@ -183,7 +183,7 @@ const Torso = props => {
             )}
           >
             {helmetSpan}
-          </span>
+          </p>
         );
       case "Shoulder":
       case "Chest":
@@ -191,7 +191,7 @@ const Torso = props => {
       case "LowerStomach":
       case "Groin":
         return (
-          <span
+          <p
             key={multiplier.name}
             className={classNames(
               styles[multiplier.name],
@@ -199,11 +199,11 @@ const Torso = props => {
             )}
           >
             {vestSpan}
-          </span>
+          </p>
         );
       default:
         return (
-          <span
+          <p
             key={multiplier.name}
             className={classNames(
               styles[multiplier.name],
@@ -211,7 +211,7 @@ const Torso = props => {
             )}
           >
             {restSpan}
-          </span>
+          </p>
         );
     }
   });
