@@ -20,32 +20,35 @@
 
 span {
 	font-weight: 500;
+	position: absolute;
 	text-align: center;
 	width: 50px;
 	left: 50%;
 	margin-left: -25px;
+	flex-direction: row;
 }
 
 .Pellets {
 	font-size: 9px;
-	position: absolute;
-	width: 50px;
-	left: 40px;
-	bottom: 0;
+	width: 15px;
+ 	top: 0;
+	left: 62px;
+	text-shadow:
+		-1px -1px 0 rgb(0, 0, 0),  
+		1px -1px 0 rgb(0, 0, 0),
+		-1px 1px 0 rgb(0, 0, 0),
+		1px 1px 0 rgb(0, 0, 0);
 }
 
 .Head {
-	position: absolute;
 	top: 20px;
 }
 
 .Neck {
-	position: absolute;
 	top: 70px;
 }
 
 .Shoulder {
-	position: absolute;
 	top: 62px;
 	left: 158px;
 	text-shadow:
@@ -56,7 +59,6 @@ span {
 }
 
 .UpperArm {
-	position: absolute;
 	top: 115px;
 	left: 200px;
 	text-shadow:
@@ -67,54 +69,45 @@ span {
 }
 
 .Chest {
-	position: absolute;
 	top: 130px;
 }
 
 .LowerArm {
-	position: absolute;
 	top: 205px;
 	left: 182px;
 	font-size: 15px;
 }
 
 .Stomach {
-	position: absolute;
 	top: 180px;
 }
 
 .LowerStomach {
-	position: absolute;
 	top: 212px;
 }
 
 .Hand {
-	position: absolute;
 	top: 258px;
 	left: 198px;
 	font-size: 14px;
 }
 
 .Groin {
-	position: absolute;
 	top: 234px;
 }
 
 .Thigh {
-	position: absolute;
 	top: 290px;
 	left: 140px;
 }
 
 .Calf {
-	position: absolute;
 	top: 400px;
 	left: 141px;
 	font-size: 16px;
 }
 
 .Foot {
-	position: absolute;
 	top: 493px;
 	left: 132px;
 	font-size: 14px;
