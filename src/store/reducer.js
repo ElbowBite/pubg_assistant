@@ -823,13 +823,13 @@ const updateMobileState = (oldObj, newProps) => {
 const reducer = (state = initState, action) => {
   switch (action.type) {
     case actionTypes.SET_CURRENT_PROPS:
-      if (action.payload.WeaponType) {
+      if (action.payload.weaponType) {
         return {
           ...state,
           current: {
             ...state.current,
             ...action.payload,
-            Weapon: state.weapons[action.payload.WeaponType][0].name
+            weapon: state.weapons[action.payload.weaponType][0].name
           }
         };
       } else {
