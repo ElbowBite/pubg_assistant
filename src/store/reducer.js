@@ -292,11 +292,11 @@ const initState = {
     ]
   },
   current: {
-    Helmet: "lvl0",
-    Vest: "lvl0",
-    WeaponType: "ARs",
-    Weapon: "AKM",
-    View: "DMG"
+    helmet: "lvl0",
+    vest: "lvl0",
+    weaponType: "ARs",
+    weapon: "AKM",
+    view: "DMG"
   },
   dmgMulitpliers: {
     ARs: [
@@ -876,8 +876,6 @@ const reducer = (state = initState, action) => {
         showBackdrop: !state.mobile.showBackdrop,
         showLeftTools: !state.mobile.showLeftTools
       });
-    case actionTypes.SET_RIGHT_TOOLS_CONTENT:
-      return updateMobileState(state, { rigthToolsContent: "Weapons" });
     default:
       return state;
   }

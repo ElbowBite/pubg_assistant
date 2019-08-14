@@ -7,7 +7,7 @@ import * as actions from "../../../../store/actions";
 
 const RightTools = props => {
   const {
-    current: { WeaponType, Weapon }
+    current: { weaponType, weapon }
   } = props;
   const weapTypes = [
     "ARs",
@@ -26,12 +26,12 @@ const RightTools = props => {
         key={weapType}
         className={classNames(
           styles.WeapType,
-          weapType === props.current.WeaponType && styles.WeapType_active
+          weapType === props.current.weaponType && styles.WeapType_active
         )}
         onClick={() =>
-          WeaponType === weapType
+          weaponType === weapType
             ? {}
-            : props.onSelectCurrent({ WeaponType: weapType })
+            : props.onSelectCurrent({ weaponType: weapType })
         }
       >
         {weapType}
@@ -39,30 +39,32 @@ const RightTools = props => {
     );
   });
 
-  const curWeapList = props.weapons[props.current.WeaponType].map(weapon => {
+  const curWeapList = props.weapons[props.current.weaponType].map(weap => {
+    let imgUrl = require(`../../../../assets/images/main/weapons/${props.current.weaponType}/${weap.name}.png`);
+    if (props.current.weapon === weap.name) {
+      imgUrl = require(`../../../../assets/images/main/weapons/selected/${props.current.weaponType}/${weap.name}.png`);
+    }
+    let styleObj = { backgroundImage: `url(${imgUrl})` };
+
     return (
       <button
-        key={weapon.name}
-        className={classNames(
-          styles.Weapons,
-          styles[weapon.name],
-          weapon.name === props.current.Weapon &&
-            styles[weapon.name + "_active"]
-        )}
+        key={weap.name}
+        style={styleObj}
+        className={styles.Weapons}
         onClick={() =>
-          Weapon === weapon.name
+          weapon === weap.name
             ? {}
-            : props.onSelectCurrent({ Weapon: weapon.name })
+            : props.onSelectCurrent({ weapon: weap.name })
         }
       >
-        {weapon.name.replace(/_/g, " ")}
+        {weap.name.replace(/_/g, " ")}
       </button>
     );
   });
 
   return (
     <div className={styles.RightTools}>
-      <div onClick={() => props.onWeaponTypeSelected()}>
+      <div>
         <p className={styles.WeaponSelectionLabel}>Select weapon</p>
         <div
           className={classNames(
@@ -95,8 +97,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onSelectCurrent: payload => dispatch(actions.setCurrentProps(payload)),
-    onWeaponTypeSelected: () => dispatch(actions.setRightToolsContent())
+    onSelectCurrent: payload => dispatch(actions.setCurrentProps(payload))
   };
 };
 

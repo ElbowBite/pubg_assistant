@@ -25,9 +25,9 @@ const Torso = props => {
     Foot: 0.3
   };
   /* Pulling base damage of a currently selected weapon from state.weapons */
-  const curBaseDmg = props.weapons[props.current.WeaponType].reduce(
+  const curBaseDmg = props.weapons[props.current.weaponType].reduce(
     (pv, cv) => {
-      if (cv.name === props.current.Weapon) {
+      if (cv.name === props.current.weapon) {
         return cv.baseDmg;
       }
       return pv;
@@ -35,9 +35,9 @@ const Torso = props => {
     ""
   );
   /* Pulling fire rate of a currently selected weapon from state.weapons */
-  const curFireRate = props.weapons[props.current.WeaponType].reduce(
+  const curFireRate = props.weapons[props.current.weaponType].reduce(
     (pv, cv) => {
-      if (cv.name === props.current.Weapon) {
+      if (cv.name === props.current.weapon) {
         return cv.fireRate;
       }
       return pv;
@@ -46,14 +46,14 @@ const Torso = props => {
   );
   /* Pulling damage multiplier of a currently selected helmet */
   const curHelmetDmgMultiplier = props.gear.helmets.reduce((pv, cv) => {
-    if (cv.name === props.current.Helmet) {
+    if (cv.name === props.current.helmet) {
       return cv.dmgMulitplier;
     }
     return pv;
   }, "");
   /* Pulling damage multiplier of a currently selected vest */
   const curVestDmgMultiplier = props.gear.vests.reduce((pv, cv) => {
-    if (cv.name === props.current.Vest) {
+    if (cv.name === props.current.vest) {
       return cv.dmgMulitplier;
     }
     return pv;
@@ -68,10 +68,10 @@ const Torso = props => {
   };
   /* Checking if current weapon is a crossbow and needs its own dmg multiplier to be used */
   let multiplierToUse = null;
-  if (props.current.Weapon === "Crossbow") {
+  if (props.current.weapon === "Crossbow") {
     multiplierToUse = "Crossbow";
   } else {
-    multiplierToUse = props.current.WeaponType;
+    multiplierToUse = props.current.weaponType;
   }
   /* Forming list of spans with damage dealt to area */
   const dmgAreas = props.dmgMulitpliers[multiplierToUse].map(multiplier => {
@@ -90,17 +90,17 @@ const Torso = props => {
     const htkWithHelmet = Math.ceil(100 / dmgWithHelmet).toString(10);
     const htkWithVest = Math.ceil(100 / dmgWithVest).toString(10);
     /* Defining what to show on torso */
-    if (props.current.WeaponType === "SGs") {
-      const curNumberOfPellets = props.weapons[props.current.WeaponType].reduce(
+    if (props.current.weaponType === "SGs") {
+      const curNumberOfPellets = props.weapons[props.current.weaponType].reduce(
         (pv, cv) => {
-          if (cv.name === props.current.Weapon) {
+          if (cv.name === props.current.weapon) {
             return cv.numberOfPellets;
           }
           return pv;
         },
         ""
       );
-      if (props.current.View === "DMG") {
+      if (props.current.view === "DMG") {
         helmetSpan = (
           <>
             {dmgWithHelmet}
@@ -125,12 +125,12 @@ const Torso = props => {
       vestSpan = dmgWithVest;
       restSpan = dmgBeforeArmor;
     }
-    if (props.current.View === "HTK") {
-      if (props.current.WeaponType === "SGs") {
+    if (props.current.view === "HTK") {
+      if (props.current.weaponType === "SGs") {
         const curNumberOfPellets = props.weapons[
-          props.current.WeaponType
+          props.current.weaponType
         ].reduce((pv, cv) => {
-          if (cv.name === props.current.Weapon) {
+          if (cv.name === props.current.weapon) {
             return cv.numberOfPellets;
           }
           return pv;
@@ -159,8 +159,8 @@ const Torso = props => {
         restSpan = htkBeforeArmor;
       }
     }
-    if (props.current.View === "TTK") {
-      if (props.current.WeaponType === "SGs") {
+    if (props.current.view === "TTK") {
+      if (props.current.weaponType === "SGs") {
         helmetSpan = (Math.floor(htkWithHelmet / 9) * curFireRate).toFixed(2) + "s";
         vestSpan = (Math.floor(htkWithVest / 9) * curFireRate).toFixed(2) + "s";
         restSpan = (Math.floor(htkBeforeArmor / 9) * curFireRate).toFixed(2) + "s";
