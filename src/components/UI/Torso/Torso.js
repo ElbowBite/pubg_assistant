@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import classNames from "classnames";
 
@@ -7,7 +7,8 @@ import styles from "./Torso.module.css";
 const Torso = props => {
   let helmetSpan = null;
   let vestSpan = null;
-  let restSpan = null;
+	let restSpan = null;
+	const [showHtkTooltip, toggleHtkTooltip] = useState(false);
   /* Defining base hit area damage multipliers */
   const baseAreaDmgMulitpliers = {
     Head: 1,
@@ -169,14 +170,16 @@ const Torso = props => {
         vestSpan = ((htkWithVest - 1) * curFireRate).toFixed(2) + "s";
         restSpan = ((htkBeforeArmor - 1) * curFireRate).toFixed(2) + "s";
       }
-    }
+		}
     /* Outputing spans with damage */
     switch (multiplier.name) {
       case "Head":
       case "Neck":
         return (
           <p
-            key={multiplier.name}
+						key={multiplier.name}
+						onMouseOver={() => toggleHtkTooltip(!showHtkTooltip)}
+						onMouseOut={() => toggleHtkTooltip(!showHtkTooltip)}
             className={classNames(
 							styles[multiplier.name],
 							styles.Numbers,
@@ -193,7 +196,9 @@ const Torso = props => {
       case "Groin":
         return (
           <p
-            key={multiplier.name}
+						key={multiplier.name}
+						onMouseOver={() => toggleHtkTooltip(!showHtkTooltip)}
+						onMouseOut={() => toggleHtkTooltip(!showHtkTooltip)}
             className={classNames(
 							styles[multiplier.name],
 							styles.Numbers,
@@ -206,7 +211,9 @@ const Torso = props => {
       default:
         return (
           <p
-            key={multiplier.name}
+						key={multiplier.name}
+						onMouseOver={() => toggleHtkTooltip(!showHtkTooltip)}
+						onMouseOut={() => toggleHtkTooltip(!showHtkTooltip)}
             className={classNames(
 							styles[multiplier.name],
 							styles.Numbers,
@@ -217,9 +224,18 @@ const Torso = props => {
           </p>
         );
     }
-  });
+	});
 
-  return <div className={styles.Torso}>{dmgAreas}</div>;
+  return (
+		<div className={styles.HtkDiv}>
+			<div className={styles.Torso}>{dmgAreas}</div>
+			<button onClick={() => toggleHtkTooltip(!showHtkTooltip)} className={styles.HtkButton}>Colors tooltip</button>
+			<div className={!showHtkTooltip && styles.Hidden}>
+				<p>Hits to kill:</p>
+				<div className={styles.HtkRainbow}><p className={styles.HtkRainbowSides}>1</p><p className={styles.HtkRainbow}>2</p><p className={styles.HtkRainbow}>3</p><p className={styles.HtkRainbow}>4</p><p className={styles.HtkRainbow}>5</p><p className={styles.HtkRainbowSides}>6+</p></div>
+			</div>
+		</div>
+	);
 };
 
 const mapStateToProps = state => {

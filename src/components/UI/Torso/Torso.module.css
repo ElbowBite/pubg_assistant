@@ -9,6 +9,7 @@
 	font-size: 17px;
 	display: inline-block;
 	position: relative;
+	margin-bottom: 5px;
 }
 
 @media (max-height: 565px) {
@@ -114,6 +115,48 @@
 	font-size: 14px;
 }
 
+.HtkRainbow {
+	margin-top: 3px;
+	height: 15px;
+	width: 225px;
+	background: linear-gradient(to right, red, orange, yellow, rgb(0, 192, 0), rgb(0, 119, 255), rgb(130, 52, 255));
+	display: flex;
+	align-content: row;
+	opacity: 0.8;
+}
+
+.HtkDiv {
+	display: flex;
+	flex-direction: column;
+	align-content: center;
+}
+
+.HtkRainbow {
+	width: 22%;
+	height: 15px;
+	font-size: 13px;
+	color: #ffaa00;
+	text-shadow:
+		-1px -1px 0 black,  
+		1px -1px 0 black,
+		-1px 1px 0 black,
+		1px 1px 0 black;
+}
+
+.HtkRainbowSides {
+	font-size: 13px;
+	width: 18px;
+	text-shadow:
+		-1px -1px 0 black,  
+		1px -1px 0 black,
+		-1px 1px 0 black,
+		1px 1px 0 black;
+}
+
+.HtkButton {
+	font-size: 15px;
+}
+
 .HitsToKill_1 {
 	color: red;
 }
@@ -147,4 +190,8 @@
 .HitsToKill_16,
 .HitsToKill_17 {
 	color: rgb(130, 52, 255);
+}
+
+.Hidden {
+	opacity: 0;
 }
