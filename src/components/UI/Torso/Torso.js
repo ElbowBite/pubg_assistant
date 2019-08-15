@@ -9,6 +9,18 @@ const Torso = props => {
   let vestSpan = null;
 	let restSpan = null;
 	const [showHtkTooltip, toggleHtkTooltip] = useState(false);
+  const [showHtkTooltipButton, toggleHtkTooltipButton] = useState(false);
+
+  const onMouseOver = () => {
+    toggleHtkTooltip(true);
+  }
+  
+  const onMouseOut = () => {
+    if (!showHtkTooltipButton) {
+      toggleHtkTooltip(false);
+    }
+  }
+
   /* Defining base hit area damage multipliers */
   const baseAreaDmgMulitpliers = {
     Head: 1,
@@ -178,8 +190,8 @@ const Torso = props => {
         return (
           <p
 						key={multiplier.name}
-						onMouseOver={() => toggleHtkTooltip(!showHtkTooltip)}
-						onMouseOut={() => toggleHtkTooltip(!showHtkTooltip)}
+						onMouseOver={onMouseOver}
+						onMouseOut={onMouseOut}
             className={classNames(
 							styles[multiplier.name],
 							styles.Numbers,
@@ -197,8 +209,8 @@ const Torso = props => {
         return (
           <p
 						key={multiplier.name}
-						onMouseOver={() => toggleHtkTooltip(!showHtkTooltip)}
-						onMouseOut={() => toggleHtkTooltip(!showHtkTooltip)}
+						onMouseOver={onMouseOver}
+						onMouseOut={onMouseOut}
             className={classNames(
 							styles[multiplier.name],
 							styles.Numbers,
@@ -212,8 +224,8 @@ const Torso = props => {
         return (
           <p
 						key={multiplier.name}
-						onMouseOver={() => toggleHtkTooltip(!showHtkTooltip)}
-						onMouseOut={() => toggleHtkTooltip(!showHtkTooltip)}
+						onMouseOver={onMouseOver}
+						onMouseOut={onMouseOut}
             className={classNames(
 							styles[multiplier.name],
 							styles.Numbers,
@@ -229,10 +241,24 @@ const Torso = props => {
   return (
 		<div className={styles.HtkDiv}>
 			<div className={styles.Torso}>{dmgAreas}</div>
-			<button onClick={() => toggleHtkTooltip(!showHtkTooltip)} className={styles.HtkButton}>Colors tooltip</button>
+      <button
+        onClick={() => {
+          toggleHtkTooltip(!showHtkTooltip);
+          toggleHtkTooltipButton(!showHtkTooltipButton);
+        }}
+        className={styles.HtkButton}
+      >
+        Colors tooltip
+      </button>
 			<div className={!showHtkTooltip && styles.Hidden}>
 				<p>Hits to kill:</p>
-				<div className={styles.HtkRainbow}><p className={styles.HtkRainbowSides}>1</p><p className={styles.HtkRainbow}>2</p><p className={styles.HtkRainbow}>3</p><p className={styles.HtkRainbow}>4</p><p className={styles.HtkRainbow}>5</p><p className={styles.HtkRainbowSides}>6+</p></div>
+				<div className={styles.HtkRainbow}>
+          <p className={styles.HtkRainbowSides}>1</p>
+          {[2, 3, 4, 5].map(num => (
+            <p className={styles.HtkRainbowItem}>{num}</p>
+          ))}
+          <p className={styles.HtkRainbowSides}>6+</p>
+        </div>
 			</div>
 		</div>
 	);
