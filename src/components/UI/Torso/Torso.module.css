@@ -195,3 +195,9 @@
 .Hidden {
 	opacity: 0;
 }
+
+.arrow {
+	position: absolute;
+	transition: margin 0.3s linear;
+	margin-top: 10px;
+}
