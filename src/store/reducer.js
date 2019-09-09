@@ -118,7 +118,7 @@ const initState = {
         name: "Sickle",
         baseDmg: 60,
         fireRate: 0.75
-      },
+      }/* ,
       {
         name: "Jump_punch",
         baseDmg: 38,
@@ -128,7 +128,7 @@ const initState = {
         name: "Punch",
         baseDmg: 18,
         fireRate: 0.33
-      }
+      } */
     ],
     Pistols: [
       {

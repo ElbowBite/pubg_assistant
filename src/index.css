@@ -16,6 +16,8 @@ code {
 p,
 label {
 	color: #f2aa00;
+	text-align: center;
+	margin: 0;
 }
 
 button {
